@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_66282527f03900b33abad2f13808243d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_66282527f03900b33abad2f13808243d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_66282527f03900b33abad2f13808243d = L.map(
+                "map_66282527f03900b33abad2f13808243d",
+                {
+                    center: [12.5, 122.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_be4373c5984470ce6ea331e9b239a238 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_be4373c5984470ce6ea331e9b239a238.addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+            var circle_marker_58cf886fed1c07561ea59be63a41bf0a = L.circleMarker(
+                [11.5, 125.6],
+                {"bubblingMouseEvents": true, "color": "#619cb8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#619cb8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_4e92a815ac8fc650f78a1f2a8f559793 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0ac104087a9129ce079a96638b120eca = $(`<div id="html_0ac104087a9129ce079a96638b120eca" style="width: 100.0%; height: 100.0%;"><b>Eastern Samar coast</b> (#01)<br>D = 1.0718<br>Surge = 0.83 m<br>Tier = Low</div>`)[0];
+                popup_4e92a815ac8fc650f78a1f2a8f559793.setContent(html_0ac104087a9129ce079a96638b120eca);
+            
+        
+
+        circle_marker_58cf886fed1c07561ea59be63a41bf0a.bindPopup(popup_4e92a815ac8fc650f78a1f2a8f559793)
+        ;
+
+        
+    
+    
+            circle_marker_58cf886fed1c07561ea59be63a41bf0a.bindTooltip(
+                `<div>
+                     Eastern Samar coast: D=1.072
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_017444ffd4447bda47ca9028c4715a02 = L.circleMarker(
+                [11.0, 125.0],
+                {"bubblingMouseEvents": true, "color": "#4e91b8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4e91b8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_1b4b26a035d2278bea6eec40f89e5273 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e2672f5a32daa3963b90abb00a831e6 = $(`<div id="html_1e2672f5a32daa3963b90abb00a831e6" style="width: 100.0%; height: 100.0%;"><b>Leyte Gulf shore</b> (#02)<br>D = 1.0610<br>Surge = 0.28 m<br>Tier = Low</div>`)[0];
+                popup_1b4b26a035d2278bea6eec40f89e5273.setContent(html_1e2672f5a32daa3963b90abb00a831e6);
+            
+        
+
+        circle_marker_017444ffd4447bda47ca9028c4715a02.bindPopup(popup_1b4b26a035d2278bea6eec40f89e5273)
+        ;
+
+        
+    
+    
+            circle_marker_017444ffd4447bda47ca9028c4715a02.bindTooltip(
+                `<div>
+                     Leyte Gulf shore: D=1.061
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_147785ef7f19d2674dde4bee4539cf34 = L.circleMarker(
+                [13.2, 123.8],
+                {"bubblingMouseEvents": true, "color": "#5b99b8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b99b8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_1913f887c62919b8055666ee7e06b17b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_45957a72b774fcb282207c555963a8f0 = $(`<div id="html_45957a72b774fcb282207c555963a8f0" style="width: 100.0%; height: 100.0%;"><b>Albay Pacific coast</b> (#03)<br>D = 1.0684<br>Surge = 1.00 m<br>Tier = Low</div>`)[0];
+                popup_1913f887c62919b8055666ee7e06b17b.setContent(html_45957a72b774fcb282207c555963a8f0);
+            
+        
+
+        circle_marker_147785ef7f19d2674dde4bee4539cf34.bindPopup(popup_1913f887c62919b8055666ee7e06b17b)
+        ;
+
+        
+    
+    
+            circle_marker_147785ef7f19d2674dde4bee4539cf34.bindTooltip(
+                `<div>
+                     Albay Pacific coast: D=1.068
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61c1147616c494c6da591fd78395f6bf = L.circleMarker(
+                [11.24, 125.0],
+                {"bubblingMouseEvents": true, "color": "#2c7bb6ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c7bb6ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_e770e8a053ecb7a2d2a6d0f51109bf91 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b1f8f8b24b04761e42d0f0fad97e0ee = $(`<div id="html_7b1f8f8b24b04761e42d0f0fad97e0ee" style="width: 100.0%; height: 100.0%;"><b>Tacloban Bay</b> (#04)<br>D = 1.0406<br>Surge = 0.00 m<br>Tier = Low</div>`)[0];
+                popup_e770e8a053ecb7a2d2a6d0f51109bf91.setContent(html_7b1f8f8b24b04761e42d0f0fad97e0ee);
+            
+        
+
+        circle_marker_61c1147616c494c6da591fd78395f6bf.bindPopup(popup_e770e8a053ecb7a2d2a6d0f51109bf91)
+        ;
+
+        
+    
+    
+            circle_marker_61c1147616c494c6da591fd78395f6bf.bindTooltip(
+                `<div>
+                     Tacloban Bay: D=1.041
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_148e32040f95894bad35543c2f404afd = L.circleMarker(
+                [12.97, 124.0],
+                {"bubblingMouseEvents": true, "color": "#5696b8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5696b8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_8c41651c6907689c9ca1c36ac3df46e0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b9ef7af6fe1153e7853986c4748036f = $(`<div id="html_7b9ef7af6fe1153e7853986c4748036f" style="width: 100.0%; height: 100.0%;"><b>Sorsogon coast</b> (#05)<br>D = 1.0656<br>Surge = 1.22 m<br>Tier = Moderate</div>`)[0];
+                popup_8c41651c6907689c9ca1c36ac3df46e0.setContent(html_7b9ef7af6fe1153e7853986c4748036f);
+            
+        
+
+        circle_marker_148e32040f95894bad35543c2f404afd.bindPopup(popup_8c41651c6907689c9ca1c36ac3df46e0)
+        ;
+
+        
+    
+    
+            circle_marker_148e32040f95894bad35543c2f404afd.bindTooltip(
+                `<div>
+                     Sorsogon coast: D=1.066
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a362569e3ea7350490aff0e28d9a17d = L.circleMarker(
+                [13.7, 124.3],
+                {"bubblingMouseEvents": true, "color": "#639db9ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#639db9ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_bd9f900d217b84e63ec4f7a438c83513 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8d36bb1e218a33da4f33d6c17a4f5df1 = $(`<div id="html_8d36bb1e218a33da4f33d6c17a4f5df1" style="width: 100.0%; height: 100.0%;"><b>Catanduanes east</b> (#06)<br>D = 1.0730<br>Surge = 0.81 m<br>Tier = Low</div>`)[0];
+                popup_bd9f900d217b84e63ec4f7a438c83513.setContent(html_8d36bb1e218a33da4f33d6c17a4f5df1);
+            
+        
+
+        circle_marker_7a362569e3ea7350490aff0e28d9a17d.bindPopup(popup_bd9f900d217b84e63ec4f7a438c83513)
+        ;
+
+        
+    
+    
+            circle_marker_7a362569e3ea7350490aff0e28d9a17d.bindTooltip(
+                `<div>
+                     Catanduanes east: D=1.073
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a742ae20e89eda6a0ffba64baa8b81c = L.circleMarker(
+                [12.5, 124.8],
+                {"bubblingMouseEvents": true, "color": "#bdd6bcff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bdd6bcff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_44059095104112079354b50b8ee54412 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4e3cd0278f49a8a5ba1758bf2eb55ad2 = $(`<div id="html_4e3cd0278f49a8a5ba1758bf2eb55ad2" style="width: 100.0%; height: 100.0%;"><b>Northern Samar coast</b> (#07)<br>D = 1.1259<br>Surge = 1.65 m<br>Tier = Moderate</div>`)[0];
+                popup_44059095104112079354b50b8ee54412.setContent(html_4e3cd0278f49a8a5ba1758bf2eb55ad2);
+            
+        
+
+        circle_marker_5a742ae20e89eda6a0ffba64baa8b81c.bindPopup(popup_44059095104112079354b50b8ee54412)
+        ;
+
+        
+    
+    
+            circle_marker_5a742ae20e89eda6a0ffba64baa8b81c.bindTooltip(
+                `<div>
+                     Northern Samar coast: D=1.126
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0f3f95139b74ed54299d1308e2bd259 = L.circleMarker(
+                [15.8, 121.6],
+                {"bubblingMouseEvents": true, "color": "#b1cebcff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b1cebcff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_fe21c6e46af05d720021d08071b8cfba = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a3e41d630b5e3064b6e8651ca5a503c7 = $(`<div id="html_a3e41d630b5e3064b6e8651ca5a503c7" style="width: 100.0%; height: 100.0%;"><b>Aurora Pacific coast</b> (#08)<br>D = 1.1190<br>Surge = 0.97 m<br>Tier = Low</div>`)[0];
+                popup_fe21c6e46af05d720021d08071b8cfba.setContent(html_a3e41d630b5e3064b6e8651ca5a503c7);
+            
+        
+
+        circle_marker_b0f3f95139b74ed54299d1308e2bd259.bindPopup(popup_fe21c6e46af05d720021d08071b8cfba)
+        ;
+
+        
+    
+    
+            circle_marker_b0f3f95139b74ed54299d1308e2bd259.bindTooltip(
+                `<div>
+                     Aurora Pacific coast: D=1.119
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9e6a47f304b4d4a6db796576c067e1e = L.circleMarker(
+                [18.3, 122.0],
+                {"bubblingMouseEvents": true, "color": "#71a7b9ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#71a7b9ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_a2fd4f66bb73ef65f0ad9e88130c61b9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_642847faab364e6e942677d8c329716e = $(`<div id="html_642847faab364e6e942677d8c329716e" style="width: 100.0%; height: 100.0%;"><b>Cagayan coast</b> (#09)<br>D = 1.0816<br>Surge = 2.01 m<br>Tier = Moderate</div>`)[0];
+                popup_a2fd4f66bb73ef65f0ad9e88130c61b9.setContent(html_642847faab364e6e942677d8c329716e);
+            
+        
+
+        circle_marker_b9e6a47f304b4d4a6db796576c067e1e.bindPopup(popup_a2fd4f66bb73ef65f0ad9e88130c61b9)
+        ;
+
+        
+    
+    
+            circle_marker_b9e6a47f304b4d4a6db796576c067e1e.bindTooltip(
+                `<div>
+                     Cagayan coast: D=1.082
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f6cb091c87fa55a8e1266720fc2f2fdb = L.circleMarker(
+                [17.0, 122.2],
+                {"bubblingMouseEvents": true, "color": "#bbd5bcff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bbd5bcff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_70975ffba415395d709c2567ff88b764 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_86a591a30a82d7813449d56fc92982f1 = $(`<div id="html_86a591a30a82d7813449d56fc92982f1" style="width: 100.0%; height: 100.0%;"><b>Isabela coast</b> (#10)<br>D = 1.1248<br>Surge = 0.68 m<br>Tier = Low</div>`)[0];
+                popup_70975ffba415395d709c2567ff88b764.setContent(html_86a591a30a82d7813449d56fc92982f1);
+            
+        
+
+        circle_marker_f6cb091c87fa55a8e1266720fc2f2fdb.bindPopup(popup_70975ffba415395d709c2567ff88b764)
+        ;
+
+        
+    
+    
+            circle_marker_f6cb091c87fa55a8e1266720fc2f2fdb.bindTooltip(
+                `<div>
+                     Isabela coast: D=1.125
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6050436ae275a3baa7b76a64a60ac42c = L.circleMarker(
+                [9.8, 125.5],
+                {"bubblingMouseEvents": true, "color": "#fdf0b4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdf0b4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_d06fdde01d963596590e6ee6cf40bd8b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_929f7f4f94f2541986a33b456919cdb8 = $(`<div id="html_929f7f4f94f2541986a33b456919cdb8" style="width: 100.0%; height: 100.0%;"><b>Surigao del Norte coast</b> (#11)<br>D = 1.1732<br>Surge = 1.40 m<br>Tier = Moderate</div>`)[0];
+                popup_d06fdde01d963596590e6ee6cf40bd8b.setContent(html_929f7f4f94f2541986a33b456919cdb8);
+            
+        
+
+        circle_marker_6050436ae275a3baa7b76a64a60ac42c.bindPopup(popup_d06fdde01d963596590e6ee6cf40bd8b)
+        ;
+
+        
+    
+    
+            circle_marker_6050436ae275a3baa7b76a64a60ac42c.bindTooltip(
+                `<div>
+                     Surigao del Norte coast: D=1.173
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5ce400bf48dd538051b76b559490bcfb = L.circleMarker(
+                [8.8, 126.2],
+                {"bubblingMouseEvents": true, "color": "#f6ca99ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f6ca99ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_bc15ca356b05e9944cfe760659b167bd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0750d6c2644ac5d7bbc98dbbc4cffe76 = $(`<div id="html_0750d6c2644ac5d7bbc98dbbc4cffe76" style="width: 100.0%; height: 100.0%;"><b>Surigao del Sur coast</b> (#12)<br>D = 1.1939<br>Surge = 1.47 m<br>Tier = Moderate</div>`)[0];
+                popup_bc15ca356b05e9944cfe760659b167bd.setContent(html_0750d6c2644ac5d7bbc98dbbc4cffe76);
+            
+        
+
+        circle_marker_5ce400bf48dd538051b76b559490bcfb.bindPopup(popup_bc15ca356b05e9944cfe760659b167bd)
+        ;
+
+        
+    
+    
+            circle_marker_5ce400bf48dd538051b76b559490bcfb.bindTooltip(
+                `<div>
+                     Surigao del Sur coast: D=1.194
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_580fe1ed8c95cfd522f883a44730bbaf = L.circleMarker(
+                [7.3, 126.5],
+                {"bubblingMouseEvents": true, "color": "#b6d2bcff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b6d2bcff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_7ecb6133bda764d28e51613996f51c90 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_231c696433c0a68f68f46036314924f1 = $(`<div id="html_231c696433c0a68f68f46036314924f1" style="width: 100.0%; height: 100.0%;"><b>Davao Oriental coast</b> (#13)<br>D = 1.1219<br>Surge = 1.79 m<br>Tier = Moderate</div>`)[0];
+                popup_7ecb6133bda764d28e51613996f51c90.setContent(html_231c696433c0a68f68f46036314924f1);
+            
+        
+
+        circle_marker_580fe1ed8c95cfd522f883a44730bbaf.bindPopup(popup_7ecb6133bda764d28e51613996f51c90)
+        ;
+
+        
+    
+    
+            circle_marker_580fe1ed8c95cfd522f883a44730bbaf.bindTooltip(
+                `<div>
+                     Davao Oriental coast: D=1.122
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6891198946ba22de32a5afa2fa2ac5c4 = L.circleMarker(
+                [13.6, 123.3],
+                {"bubblingMouseEvents": true, "color": "#f5f9bfff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5f9bfff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_299b8f209e93a7e1c9e7e4db8d46f760 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_07b26f3da146dfdefb361159d8429c54 = $(`<div id="html_07b26f3da146dfdefb361159d8429c54" style="width: 100.0%; height: 100.0%;"><b>Camarines Sur coast</b> (#14)<br>D = 1.1586<br>Surge = 1.13 m<br>Tier = Moderate</div>`)[0];
+                popup_299b8f209e93a7e1c9e7e4db8d46f760.setContent(html_07b26f3da146dfdefb361159d8429c54);
+            
+        
+
+        circle_marker_6891198946ba22de32a5afa2fa2ac5c4.bindPopup(popup_299b8f209e93a7e1c9e7e4db8d46f760)
+        ;
+
+        
+    
+    
+            circle_marker_6891198946ba22de32a5afa2fa2ac5c4.bindTooltip(
+                `<div>
+                     Camarines Sur coast: D=1.159
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e715e2961a88549d9774d4a7e40dd638 = L.circleMarker(
+                [14.0, 122.3],
+                {"bubblingMouseEvents": true, "color": "#c8ddbdff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c8ddbdff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_008ab5496febd730170dddd8e87c4c45 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b5ae6711b6bdb048abbfc3488aeb59d1 = $(`<div id="html_b5ae6711b6bdb048abbfc3488aeb59d1" style="width: 100.0%; height: 100.0%;"><b>Quezon Pacific coast</b> (#15)<br>D = 1.1327<br>Surge = 1.30 m<br>Tier = Moderate</div>`)[0];
+                popup_008ab5496febd730170dddd8e87c4c45.setContent(html_b5ae6711b6bdb048abbfc3488aeb59d1);
+            
+        
+
+        circle_marker_e715e2961a88549d9774d4a7e40dd638.bindPopup(popup_008ab5496febd730170dddd8e87c4c45)
+        ;
+
+        
+    
+    
+            circle_marker_e715e2961a88549d9774d4a7e40dd638.bindTooltip(
+                `<div>
+                     Quezon Pacific coast: D=1.133
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d438d1b704d496707deb39e619f59bf8 = L.circleMarker(
+                [20.4, 121.97],
+                {"bubblingMouseEvents": true, "color": "#f7fabfff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7fabfff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_07b6e688f3449f35773d380f44b90eff = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6d2d533377b6f9538b53f65cf09c2cd8 = $(`<div id="html_6d2d533377b6f9538b53f65cf09c2cd8" style="width: 100.0%; height: 100.0%;"><b>Batanes shore</b> (#16)<br>D = 1.1599<br>Surge = 1.48 m<br>Tier = Moderate</div>`)[0];
+                popup_07b6e688f3449f35773d380f44b90eff.setContent(html_6d2d533377b6f9538b53f65cf09c2cd8);
+            
+        
+
+        circle_marker_d438d1b704d496707deb39e619f59bf8.bindPopup(popup_07b6e688f3449f35773d380f44b90eff)
+        ;
+
+        
+    
+    
+            circle_marker_d438d1b704d496707deb39e619f59bf8.bindTooltip(
+                `<div>
+                     Batanes shore: D=1.160
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c2caff30c2a1e6b8bc2a1ab168834ef = L.circleMarker(
+                [18.2, 120.6],
+                {"bubblingMouseEvents": true, "color": "#ed9775ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ed9775ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_9a5246299c46c117dfe8b7e46535d5f7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c64571ffed20d941ba39951f7b2a1fda = $(`<div id="html_c64571ffed20d941ba39951f7b2a1fda" style="width: 100.0%; height: 100.0%;"><b>Ilocos Norte coast</b> (#17)<br>D = 1.2215<br>Surge = 2.09 m<br>Tier = Moderate</div>`)[0];
+                popup_9a5246299c46c117dfe8b7e46535d5f7.setContent(html_c64571ffed20d941ba39951f7b2a1fda);
+            
+        
+
+        circle_marker_3c2caff30c2a1e6b8bc2a1ab168834ef.bindPopup(popup_9a5246299c46c117dfe8b7e46535d5f7)
+        ;
+
+        
+    
+    
+            circle_marker_3c2caff30c2a1e6b8bc2a1ab168834ef.bindTooltip(
+                `<div>
+                     Ilocos Norte coast: D=1.222
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d7dc3833a7be3a3bdc75857c420642b = L.circleMarker(
+                [16.6, 120.3],
+                {"bubblingMouseEvents": true, "color": "#f9fbbfff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9fbbfff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_d620b5ecbeaad10f01b418da25e89a9c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_abbe957d8a34203b6612c520472eb7d9 = $(`<div id="html_abbe957d8a34203b6612c520472eb7d9" style="width: 100.0%; height: 100.0%;"><b>La Union coast</b> (#18)<br>D = 1.1612<br>Surge = 1.22 m<br>Tier = Moderate</div>`)[0];
+                popup_d620b5ecbeaad10f01b418da25e89a9c.setContent(html_abbe957d8a34203b6612c520472eb7d9);
+            
+        
+
+        circle_marker_5d7dc3833a7be3a3bdc75857c420642b.bindPopup(popup_d620b5ecbeaad10f01b418da25e89a9c)
+        ;
+
+        
+    
+    
+            circle_marker_5d7dc3833a7be3a3bdc75857c420642b.bindTooltip(
+                `<div>
+                     La Union coast: D=1.161
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5630332c16abaffa9dd699c55afda8e8 = L.circleMarker(
+                [15.3, 119.95],
+                {"bubblingMouseEvents": true, "color": "#fdefb4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdefb4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_da98bdd22cf290a1c3606d3294ea98f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ebbfba0e10bacf7095d1d2774eb18b2a = $(`<div id="html_ebbfba0e10bacf7095d1d2774eb18b2a" style="width: 100.0%; height: 100.0%;"><b>Zambales coast</b> (#19)<br>D = 1.1738<br>Surge = 1.22 m<br>Tier = Moderate</div>`)[0];
+                popup_da98bdd22cf290a1c3606d3294ea98f9.setContent(html_ebbfba0e10bacf7095d1d2774eb18b2a);
+            
+        
+
+        circle_marker_5630332c16abaffa9dd699c55afda8e8.bindPopup(popup_da98bdd22cf290a1c3606d3294ea98f9)
+        ;
+
+        
+    
+    
+            circle_marker_5630332c16abaffa9dd699c55afda8e8.bindTooltip(
+                `<div>
+                     Zambales coast: D=1.174
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16e15c6ac24a99cf02b7b661856f23c5 = L.circleMarker(
+                [9.8, 118.7],
+                {"bubblingMouseEvents": true, "color": "#f8d3a0ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f8d3a0ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_612567553e876c66a9ecce593996ece5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_416a7a23c5c33809c44043c3d137ffd5 = $(`<div id="html_416a7a23c5c33809c44043c3d137ffd5" style="width: 100.0%; height: 100.0%;"><b>Palawan west coast</b> (#20)<br>D = 1.1889<br>Surge = 2.62 m<br>Tier = High</div>`)[0];
+                popup_612567553e876c66a9ecce593996ece5.setContent(html_416a7a23c5c33809c44043c3d137ffd5);
+            
+        
+
+        circle_marker_16e15c6ac24a99cf02b7b661856f23c5.bindPopup(popup_612567553e876c66a9ecce593996ece5)
+        ;
+
+        
+    
+    
+            circle_marker_16e15c6ac24a99cf02b7b661856f23c5.bindTooltip(
+                `<div>
+                     Palawan west coast: D=1.189
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d139a42df8cab44ee318bacf5b0f95f4 = L.circleMarker(
+                [12.8, 120.9],
+                {"bubblingMouseEvents": true, "color": "#ffffbfff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffbfff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_510d22bd0f4c74a25b126ce3ab4cf9a9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d2c21709ef5783e8628075687c79b050 = $(`<div id="html_d2c21709ef5783e8628075687c79b050" style="width: 100.0%; height: 100.0%;"><b>Occidental Mindoro coast</b> (#21)<br>D = 1.1650<br>Surge = 1.35 m<br>Tier = Moderate</div>`)[0];
+                popup_510d22bd0f4c74a25b126ce3ab4cf9a9.setContent(html_d2c21709ef5783e8628075687c79b050);
+            
+        
+
+        circle_marker_d139a42df8cab44ee318bacf5b0f95f4.bindPopup(popup_510d22bd0f4c74a25b126ce3ab4cf9a9)
+        ;
+
+        
+    
+    
+            circle_marker_d139a42df8cab44ee318bacf5b0f95f4.bindTooltip(
+                `<div>
+                     Occidental Mindoro coast: D=1.165
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d5c8b3c863b4165ac796e1d04ebd51a = L.circleMarker(
+                [10.7, 122.5],
+                {"bubblingMouseEvents": true, "color": "#efa07bff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#efa07bff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_63dea353aac973a69cceda248500b144 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4cb574d0834096c9b278ddb44e8667c = $(`<div id="html_a4cb574d0834096c9b278ddb44e8667c" style="width: 100.0%; height: 100.0%;"><b>Iloilo coast</b> (#22)<br>D = 1.2167<br>Surge = 2.83 m<br>Tier = High</div>`)[0];
+                popup_63dea353aac973a69cceda248500b144.setContent(html_a4cb574d0834096c9b278ddb44e8667c);
+            
+        
+
+        circle_marker_4d5c8b3c863b4165ac796e1d04ebd51a.bindPopup(popup_63dea353aac973a69cceda248500b144)
+        ;
+
+        
+    
+    
+            circle_marker_4d5c8b3c863b4165ac796e1d04ebd51a.bindTooltip(
+                `<div>
+                     Iloilo coast: D=1.217
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_199b16593748b778e8a57b23092f693a = L.circleMarker(
+                [11.0, 121.9],
+                {"bubblingMouseEvents": true, "color": "#f5c696ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5c696ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_34718d28fdd002a4344db43c04e12e9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_99bcdc575288e6a8f6e729ee69564d9f = $(`<div id="html_99bcdc575288e6a8f6e729ee69564d9f" style="width: 100.0%; height: 100.0%;"><b>Antique coast</b> (#23)<br>D = 1.1960<br>Surge = 2.11 m<br>Tier = Moderate</div>`)[0];
+                popup_34718d28fdd002a4344db43c04e12e9a.setContent(html_99bcdc575288e6a8f6e729ee69564d9f);
+            
+        
+
+        circle_marker_199b16593748b778e8a57b23092f693a.bindPopup(popup_34718d28fdd002a4344db43c04e12e9a)
+        ;
+
+        
+    
+    
+            circle_marker_199b16593748b778e8a57b23092f693a.bindTooltip(
+                `<div>
+                     Antique coast: D=1.196
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6543202cd5e40e6195923b5d031c9593 = L.circleMarker(
+                [10.3, 124.0],
+                {"bubblingMouseEvents": true, "color": "#dd3b34ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dd3b34ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_63947d504030372c70a7b6e584b790ca = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f04f43e2c01c8c6be6c028febb56b6ad = $(`<div id="html_f04f43e2c01c8c6be6c028febb56b6ad" style="width: 100.0%; height: 100.0%;"><b>Cebu east coast</b> (#24)<br>D = 1.2709<br>Surge = 2.65 m<br>Tier = High</div>`)[0];
+                popup_63947d504030372c70a7b6e584b790ca.setContent(html_f04f43e2c01c8c6be6c028febb56b6ad);
+            
+        
+
+        circle_marker_6543202cd5e40e6195923b5d031c9593.bindPopup(popup_63947d504030372c70a7b6e584b790ca)
+        ;
+
+        
+    
+    
+            circle_marker_6543202cd5e40e6195923b5d031c9593.bindTooltip(
+                `<div>
+                     Cebu east coast: D=1.271
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba805fc303a65f61be77d5ce9c42da43 = L.circleMarker(
+                [9.7, 124.3],
+                {"bubblingMouseEvents": true, "color": "#e66b56ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e66b56ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_2ab9d80732795aeb9107aff1be55dfb6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7a05801703f711c9966c3b561f4924eb = $(`<div id="html_7a05801703f711c9966c3b561f4924eb" style="width: 100.0%; height: 100.0%;"><b>Bohol coast</b> (#25)<br>D = 1.2450<br>Surge = 2.75 m<br>Tier = High</div>`)[0];
+                popup_2ab9d80732795aeb9107aff1be55dfb6.setContent(html_7a05801703f711c9966c3b561f4924eb);
+            
+        
+
+        circle_marker_ba805fc303a65f61be77d5ce9c42da43.bindPopup(popup_2ab9d80732795aeb9107aff1be55dfb6)
+        ;
+
+        
+    
+    
+            circle_marker_ba805fc303a65f61be77d5ce9c42da43.bindTooltip(
+                `<div>
+                     Bohol coast: D=1.245
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d717a5bd82432fe6ba1f64e2fcdff2e = L.circleMarker(
+                [7.8, 123.0],
+                {"bubblingMouseEvents": true, "color": "#ed9675ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ed9675ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_72ad141890d1c8ab72d06bde2c4afb74 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cdb1a5056a483a0fb58ee792c6da9ecb = $(`<div id="html_cdb1a5056a483a0fb58ee792c6da9ecb" style="width: 100.0%; height: 100.0%;"><b>Zamboanga Peninsula</b> (#26)<br>D = 1.2216<br>Surge = 2.59 m<br>Tier = High</div>`)[0];
+                popup_72ad141890d1c8ab72d06bde2c4afb74.setContent(html_cdb1a5056a483a0fb58ee792c6da9ecb);
+            
+        
+
+        circle_marker_0d717a5bd82432fe6ba1f64e2fcdff2e.bindPopup(popup_72ad141890d1c8ab72d06bde2c4afb74)
+        ;
+
+        
+    
+    
+            circle_marker_0d717a5bd82432fe6ba1f64e2fcdff2e.bindTooltip(
+                `<div>
+                     Zamboanga Peninsula: D=1.222
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf1b6b3fa3570502b8773867b8715b25 = L.circleMarker(
+                [5.1, 119.9],
+                {"bubblingMouseEvents": true, "color": "#d7191cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7191cff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_53a64d43601e13fb1e5f550efa204876 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_43d0dd5d80ba21c93e91c411d79dbf61 = $(`<div id="html_43d0dd5d80ba21c93e91c411d79dbf61" style="width: 100.0%; height: 100.0%;"><b>Tawi-Tawi (Sulu Sea)</b> (#27)<br>D = 1.2894<br>Surge = 2.58 m<br>Tier = High</div>`)[0];
+                popup_53a64d43601e13fb1e5f550efa204876.setContent(html_43d0dd5d80ba21c93e91c411d79dbf61);
+            
+        
+
+        circle_marker_cf1b6b3fa3570502b8773867b8715b25.bindPopup(popup_53a64d43601e13fb1e5f550efa204876)
+        ;
+
+        
+    
+    
+            circle_marker_cf1b6b3fa3570502b8773867b8715b25.bindTooltip(
+                `<div>
+                     Tawi-Tawi (Sulu Sea): D=1.289
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5864bf8c66c1116a7d3907e5c2929d52 = L.circleMarker(
+                [14.6, 120.5],
+                {"bubblingMouseEvents": true, "color": "#e66f59ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e66f59ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_aadfe65315ed2ad40379c0fcb24e5530 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_65676738cd7feb24051137d1f850ac66 = $(`<div id="html_65676738cd7feb24051137d1f850ac66" style="width: 100.0%; height: 100.0%;"><b>Manila Bay interior</b> (#28)<br>D = 1.2428<br>Surge = 2.73 m<br>Tier = High</div>`)[0];
+                popup_aadfe65315ed2ad40379c0fcb24e5530.setContent(html_65676738cd7feb24051137d1f850ac66);
+            
+        
+
+        circle_marker_5864bf8c66c1116a7d3907e5c2929d52.bindPopup(popup_aadfe65315ed2ad40379c0fcb24e5530)
+        ;
+
+        
+    
+    
+            circle_marker_5864bf8c66c1116a7d3907e5c2929d52.bindTooltip(
+                `<div>
+                     Manila Bay interior: D=1.243
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b60fbc70fbc9a447cc6ff28a21de838f = L.circleMarker(
+                [16.2, 120.2],
+                {"bubblingMouseEvents": true, "color": "#e4614fff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4614fff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_688c0c782b70f13b2e6c1d2d3a229a4d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_63ce51a41148a5cf555d91be795e634c = $(`<div id="html_63ce51a41148a5cf555d91be795e634c" style="width: 100.0%; height: 100.0%;"><b>Lingayen Gulf</b> (#29)<br>D = 1.2502<br>Surge = 2.91 m<br>Tier = High</div>`)[0];
+                popup_688c0c782b70f13b2e6c1d2d3a229a4d.setContent(html_63ce51a41148a5cf555d91be795e634c);
+            
+        
+
+        circle_marker_b60fbc70fbc9a447cc6ff28a21de838f.bindPopup(popup_688c0c782b70f13b2e6c1d2d3a229a4d)
+        ;
+
+        
+    
+    
+            circle_marker_b60fbc70fbc9a447cc6ff28a21de838f.bindTooltip(
+                `<div>
+                     Lingayen Gulf: D=1.250
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1144aaca766844c729df2e3372f64836 = L.circleMarker(
+                [6.0, 125.2],
+                {"bubblingMouseEvents": true, "color": "#da2625ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#da2625ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_66282527f03900b33abad2f13808243d);
+        
+    
+        var popup_b799151c86d8c416ba47801b5bc02f42 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_be9656501e554ba4bf6da487b2a44475 = $(`<div id="html_be9656501e554ba4bf6da487b2a44475" style="width: 100.0%; height: 100.0%;"><b>Sarangani Bay</b> (#30)<br>D = 1.2820<br>Surge = 2.83 m<br>Tier = High</div>`)[0];
+                popup_b799151c86d8c416ba47801b5bc02f42.setContent(html_be9656501e554ba4bf6da487b2a44475);
+            
+        
+
+        circle_marker_1144aaca766844c729df2e3372f64836.bindPopup(popup_b799151c86d8c416ba47801b5bc02f42)
+        ;
+
+        
+    
+    
+            circle_marker_1144aaca766844c729df2e3372f64836.bindTooltip(
+                `<div>
+                     Sarangani Bay: D=1.282
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+    var color_map_a17f776ed3fc30bb47597bf179913fc7 = {};
+
+    
+    color_map_a17f776ed3fc30bb47597bf179913fc7.color = d3.scale.threshold()
+              .domain([1.0406, 1.0410985971943887, 1.0415971943887776, 1.0420957915831663, 1.042594388777555, 1.0430929859719438, 1.0435915831663327, 1.0440901803607214, 1.0445887775551101, 1.0450873747494989, 1.0455859719438878, 1.0460845691382765, 1.0465831663326652, 1.0470817635270542, 1.047580360721443, 1.0480789579158316, 1.0485775551102203, 1.0490761523046093, 1.049574749498998, 1.0500733466933867, 1.0505719438877754, 1.0510705410821644, 1.051569138276553, 1.0520677354709418, 1.0525663326653307, 1.0530649298597194, 1.0535635270541082, 1.0540621242484969, 1.0545607214428858, 1.0550593186372745, 1.0555579158316633, 1.0560565130260522, 1.056555110220441, 1.0570537074148296, 1.0575523046092183, 1.0580509018036073, 1.058549498997996, 1.0590480961923847, 1.0595466933867734, 1.0600452905811624, 1.060543887775551, 1.0610424849699398, 1.0615410821643287, 1.0620396793587175, 1.0625382765531062, 1.063036873747495, 1.0635354709418838, 1.0640340681362725, 1.0645326653306613, 1.06503126252505, 1.065529859719439, 1.0660284569138276, 1.0665270541082164, 1.0670256513026053, 1.067524248496994, 1.0680228456913827, 1.0685214428857714, 1.0690200400801604, 1.069518637274549, 1.0700172344689378, 1.0705158316633265, 1.0710144288577155, 1.0715130260521042, 1.072011623246493, 1.0725102204408818, 1.0730088176352706, 1.0735074148296593, 1.074006012024048, 1.074504609218437, 1.0750032064128257, 1.0755018036072144, 1.076000400801603, 1.076498997995992, 1.0769975951903807, 1.0774961923847695, 1.0779947895791584, 1.0784933867735471, 1.0789919839679358, 1.0794905811623245, 1.0799891783567135, 1.0804877755511022, 1.080986372745491, 1.0814849699398796, 1.0819835671342686, 1.0824821643286573, 1.082980761523046, 1.083479358717435, 1.0839779559118237, 1.0844765531062124, 1.084975150300601, 1.08547374749499, 1.0859723446893788, 1.0864709418837675, 1.0869695390781564, 1.0874681362725451, 1.0879667334669338, 1.0884653306613226, 1.0889639278557115, 1.0894625250501002, 1.089961122244489, 1.0904597194388777, 1.0909583166332666, 1.0914569138276553, 1.091955511022044, 1.092454108216433, 1.0929527054108217, 1.0934513026052104, 1.0939498997995991, 1.094448496993988, 1.0949470941883768, 1.0954456913827655, 1.0959442885771542, 1.0964428857715431, 1.0969414829659319, 1.0974400801603206, 1.0979386773547095, 1.0984372745490982, 1.098935871743487, 1.0994344689378757, 1.0999330661322646, 1.1004316633266533, 1.100930260521042, 1.1014288577154308, 1.1019274549098197, 1.1024260521042084, 1.1029246492985971, 1.103423246492986, 1.1039218436873748, 1.1044204408817635, 1.1049190380761522, 1.1054176352705412, 1.1059162324649299, 1.1064148296593186, 1.1069134268537075, 1.1074120240480962, 1.107910621242485, 1.1084092184368737, 1.1089078156312626, 1.1094064128256513, 1.10990501002004, 1.1104036072144288, 1.1109022044088177, 1.1114008016032064, 1.1118993987975951, 1.112397995991984, 1.1128965931863728, 1.1133951903807615, 1.1138937875751502, 1.1143923847695392, 1.1148909819639279, 1.1153895791583166, 1.1158881763527053, 1.1163867735470943, 1.116885370741483, 1.1173839679358717, 1.1178825651302606, 1.1183811623246493, 1.118879759519038, 1.1193783567134268, 1.1198769539078157, 1.1203755511022044, 1.1208741482965932, 1.1213727454909819, 1.1218713426853708, 1.1223699398797595, 1.1228685370741482, 1.1233671342685372, 1.123865731462926, 1.1243643286573146, 1.1248629258517033, 1.1253615230460923, 1.125860120240481, 1.1263587174348697, 1.1268573146292584, 1.1273559118236474, 1.127854509018036, 1.1283531062124248, 1.1288517034068137, 1.1293503006012025, 1.1298488977955912, 1.1303474949899799, 1.1308460921843688, 1.1313446893787575, 1.1318432865731463, 1.132341883767535, 1.132840480961924, 1.1333390781563126, 1.1338376753507013, 1.1343362725450903, 1.134834869739479, 1.1353334669338677, 1.1358320641282564, 1.1363306613226454, 1.136829258517034, 1.1373278557114228, 1.1378264529058117, 1.1383250501002005, 1.1388236472945892, 1.139322244488978, 1.1398208416833668, 1.1403194388777556, 1.1408180360721443, 1.141316633266533, 1.141815230460922, 1.1423138276553106, 1.1428124248496994, 1.1433110220440883, 1.143809619238477, 1.1443082164328657, 1.1448068136272544, 1.1453054108216434, 1.145804008016032, 1.1463026052104208, 1.1468012024048098, 1.1472997995991985, 1.1477983967935872, 1.148296993987976, 1.1487955911823649, 1.1492941883767536, 1.1497927855711423, 1.150291382765531, 1.15078997995992, 1.1512885771543087, 1.1517871743486974, 1.1522857715430863, 1.152784368737475, 1.1532829659318637, 1.1537815631262525, 1.1542801603206414, 1.1547787575150301, 1.1552773547094188, 1.1557759519038076, 1.1562745490981965, 1.1567731462925852, 1.157271743486974, 1.1577703406813629, 1.1582689378757516, 1.1587675350701403, 1.159266132264529, 1.159764729458918, 1.1602633266533067, 1.1607619238476954, 1.161260521042084, 1.161759118236473, 1.1622577154308618, 1.1627563126252505, 1.1632549098196394, 1.1637535070140281, 1.1642521042084168, 1.1647507014028056, 1.1652492985971945, 1.1657478957915832, 1.166246492985972, 1.1667450901803607, 1.1672436873747496, 1.1677422845691383, 1.168240881763527, 1.168739478957916, 1.1692380761523047, 1.1697366733466934, 1.1702352705410821, 1.170733867735471, 1.1712324649298598, 1.1717310621242485, 1.1722296593186372, 1.1727282565130261, 1.1732268537074149, 1.1737254509018036, 1.1742240480961925, 1.1747226452905812, 1.17522124248497, 1.1757198396793587, 1.1762184368737476, 1.1767170340681363, 1.177215631262525, 1.1777142284569138, 1.1782128256513027, 1.1787114228456914, 1.1792100200400801, 1.179708617234469, 1.1802072144288578, 1.1807058116232465, 1.1812044088176352, 1.1817030060120242, 1.1822016032064129, 1.1827002004008016, 1.1831987975951903, 1.1836973947895792, 1.184195991983968, 1.1846945891783567, 1.1851931863727456, 1.1856917835671343, 1.186190380761523, 1.1866889779559118, 1.1871875751503007, 1.1876861723446894, 1.1881847695390781, 1.1886833667334669, 1.1891819639278558, 1.1896805611222445, 1.1901791583166332, 1.1906777555110222, 1.191176352705411, 1.1916749498997996, 1.1921735470941885, 1.1926721442885773, 1.193170741482966, 1.1936693386773547, 1.1941679358717434, 1.1946665330661324, 1.195165130260521, 1.1956637274549098, 1.1961623246492987, 1.1966609218436874, 1.1971595190380762, 1.197658116232465, 1.1981567134268538, 1.1986553106212425, 1.1991539078156312, 1.19965250501002, 1.200151102204409, 1.2006496993987976, 1.2011482965931863, 1.2016468937875753, 1.202145490981964, 1.2026440881763527, 1.2031426853707416, 1.2036412825651304, 1.204139879759519, 1.2046384769539078, 1.2051370741482967, 1.2056356713426855, 1.2061342685370742, 1.206632865731463, 1.2071314629258518, 1.2076300601202405, 1.2081286573146293, 1.2086272545090182, 1.209125851703407, 1.2096244488977956, 1.2101230460921844, 1.2106216432865733, 1.211120240480962, 1.2116188376753507, 1.2121174348697394, 1.2126160320641284, 1.213114629258517, 1.2136132264529058, 1.2141118236472948, 1.2146104208416835, 1.2151090180360722, 1.215607615230461, 1.2161062124248498, 1.2166048096192386, 1.2171034068136273, 1.217602004008016, 1.218100601202405, 1.2185991983967936, 1.2190977955911824, 1.2195963927855713, 1.22009498997996, 1.2205935871743487, 1.2210921843687375, 1.2215907815631264, 1.222089378757515, 1.2225879759519038, 1.2230865731462925, 1.2235851703406815, 1.2240837675350702, 1.224582364729459, 1.2250809619238479, 1.2255795591182366, 1.2260781563126253, 1.226576753507014, 1.227075350701403, 1.2275739478957917, 1.2280725450901804, 1.228571142284569, 1.229069739478958, 1.2295683366733468, 1.2300669338677355, 1.2305655310621244, 1.2310641282565131, 1.2315627254509018, 1.2320613226452906, 1.2325599198396795, 1.2330585170340682, 1.233557114228457, 1.2340557114228456, 1.2345543086172346, 1.2350529058116233, 1.235551503006012, 1.236050100200401, 1.2365486973947897, 1.2370472945891784, 1.2375458917835673, 1.238044488977956, 1.2385430861723448, 1.2390416833667335, 1.2395402805611222, 1.2400388777555111, 1.2405374749498999, 1.2410360721442886, 1.2415346693386775, 1.2420332665330662, 1.242531863727455, 1.2430304609218439, 1.2435290581162326, 1.2440276553106213, 1.24452625250501, 1.2450248496993988, 1.2455234468937877, 1.2460220440881764, 1.2465206412825651, 1.247019238476954, 1.2475178356713428, 1.2480164328657315, 1.2485150300601204, 1.2490136272545092, 1.2495122244488979, 1.2500108216432866, 1.2505094188376755, 1.2510080160320642, 1.251506613226453, 1.2520052104208417, 1.2525038076152306, 1.2530024048096193, 1.253501002004008, 1.253999599198397, 1.2544981963927857, 1.2549967935871744, 1.2554953907815631, 1.255993987975952, 1.2564925851703408, 1.2569911823647295, 1.2574897795591182, 1.2579883767535072, 1.2584869739478959, 1.2589855711422846, 1.2594841683366735, 1.2599827655310623, 1.260481362725451, 1.2609799599198397, 1.2614785571142286, 1.2619771543086173, 1.262475751503006, 1.2629743486973948, 1.2634729458917837, 1.2639715430861724, 1.2644701402805612, 1.26496873747495, 1.2654673346693388, 1.2659659318637275, 1.2664645290581162, 1.2669631262525052, 1.267461723446894, 1.2679603206412826, 1.2684589178356713, 1.2689575150300603, 1.269456112224449, 1.2699547094188377, 1.2704533066132266, 1.2709519038076154, 1.271450501002004, 1.2719490981963928, 1.2724476953907817, 1.2729462925851704, 1.2734448897795592, 1.2739434869739479, 1.2744420841683368, 1.2749406813627255, 1.2754392785571143, 1.2759378757515032, 1.276436472945892, 1.2769350701402806, 1.2774336673346693, 1.2779322645290583, 1.278430861723447, 1.2789294589178357, 1.2794280561122244, 1.2799266533066134, 1.280425250501002, 1.2809238476953908, 1.2814224448897797, 1.2819210420841685, 1.2824196392785572, 1.2829182364729461, 1.2834168336673348, 1.2839154308617236, 1.2844140280561123, 1.284912625250501, 1.28541122244489, 1.2859098196392786, 1.2864084168336674, 1.2869070140280563, 1.287405611222445, 1.2879042084168337, 1.2884028056112227, 1.2889014028056114, 1.2894])
+              .range(['#2c7bb6ff', '#2d7cb6ff', '#2d7cb6ff', '#2e7db6ff', '#2f7db6ff', '#307eb6ff', '#317eb6ff', '#327fb6ff', '#327fb7ff', '#3380b7ff', '#3480b7ff', '#3581b7ff', '#3681b7ff', '#3782b7ff', '#3882b7ff', '#3883b7ff', '#3983b7ff', '#3a84b7ff', '#3b85b7ff', '#3c85b7ff', '#3d86b7ff', '#3e86b7ff', '#3e87b7ff', '#3f87b7ff', '#4088b7ff', '#4188b7ff', '#4289b7ff', '#4389b7ff', '#438ab7ff', '#448ab7ff', '#458bb7ff', '#468bb7ff', '#478cb7ff', '#488db7ff', '#498db7ff', '#498eb7ff', '#4a8eb8ff', '#4b8fb8ff', '#4c8fb8ff', '#4d90b8ff', '#4e90b8ff', '#4e91b8ff', '#4f91b8ff', '#5092b8ff', '#5192b8ff', '#5293b8ff', '#5393b8ff', '#5494b8ff', '#5494b8ff', '#5595b8ff', '#5696b8ff', '#5796b8ff', '#5897b8ff', '#5997b8ff', '#5a98b8ff', '#5a98b8ff', '#5b99b8ff', '#5c99b8ff', '#5d9ab8ff', '#5e9ab8ff', '#5f9bb8ff', '#5f9bb8ff', '#609cb8ff', '#619cb8ff', '#629db9ff', '#639eb9ff', '#649eb9ff', '#659fb9ff', '#659fb9ff', '#66a0b9ff', '#67a0b9ff', '#68a1b9ff', '#69a1b9ff', '#6aa2b9ff', '#6aa2b9ff', '#6ba3b9ff', '#6ca3b9ff', '#6da4b9ff', '#6ea4b9ff', '#6fa5b9ff', '#70a5b9ff', '#70a6b9ff', '#71a7b9ff', '#72a7b9ff', '#73a8b9ff', '#74a8b9ff', '#75a9b9ff', '#76a9b9ff', '#76aab9ff', '#77aab9ff', '#78abb9ff', '#79abbaff', '#7aacbaff', '#7bacbaff', '#7badbaff', '#7cadbaff', '#7daebaff', '#7eafbaff', '#7fafbaff', '#80b0baff', '#81b0baff', '#81b1baff', '#82b1baff', '#83b2baff', '#84b2baff', '#85b3baff', '#86b3baff', '#87b4baff', '#87b4baff', '#88b5baff', '#89b5baff', '#8ab6baff', '#8bb6baff', '#8cb7baff', '#8cb8baff', '#8db8baff', '#8eb9baff', '#8fb9baff', '#90babaff', '#91babbff', '#92bbbbff', '#92bbbbff', '#93bcbbff', '#94bcbbff', '#95bdbbff', '#96bdbbff', '#97bebbff', '#97bebbff', '#98bfbbff', '#99bfbbff', '#9ac0bbff', '#9bc1bbff', '#9cc1bbff', '#9dc2bbff', '#9dc2bbff', '#9ec3bbff', '#9fc3bbff', '#a0c4bbff', '#a1c4bbff', '#a2c5bbff', '#a3c5bbff', '#a3c6bbff', '#a4c6bbff', '#a5c7bbff', '#a6c7bbff', '#a7c8bbff', '#a8c9bcff', '#a8c9bcff', '#a9cabcff', '#aacabcff', '#abcbbcff', '#accbbcff', '#adccbcff', '#aeccbcff', '#aecdbcff', '#afcdbcff', '#b0cebcff', '#b1cebcff', '#b2cfbcff', '#b3cfbcff', '#b4d0bcff', '#b4d0bcff', '#b5d1bcff', '#b6d2bcff', '#b7d2bcff', '#b8d3bcff', '#b9d3bcff', '#b9d4bcff', '#bad4bcff', '#bbd5bcff', '#bcd5bcff', '#bdd6bcff', '#bed6bcff', '#bfd7bcff', '#bfd7bdff', '#c0d8bdff', '#c1d8bdff', '#c2d9bdff', '#c3dabdff', '#c4dabdff', '#c4dbbdff', '#c5dbbdff', '#c6dcbdff', '#c7dcbdff', '#c8ddbdff', '#c9ddbdff', '#cadebdff', '#cadebdff', '#cbdfbdff', '#ccdfbdff', '#cde0bdff', '#cee0bdff', '#cfe1bdff', '#d0e1bdff', '#d0e2bdff', '#d1e3bdff', '#d2e3bdff', '#d3e4bdff', '#d4e4bdff', '#d5e5bdff', '#d5e5bdff', '#d6e6bdff', '#d7e6beff', '#d8e7beff', '#d9e7beff', '#dae8beff', '#dbe8beff', '#dbe9beff', '#dce9beff', '#ddeabeff', '#deebbeff', '#dfebbeff', '#e0ecbeff', '#e1ecbeff', '#e1edbeff', '#e2edbeff', '#e3eebeff', '#e4eebeff', '#e5efbeff', '#e6efbeff', '#e6f0beff', '#e7f0beff', '#e8f1beff', '#e9f1beff', '#eaf2beff', '#ebf2beff', '#ecf3beff', '#ecf4beff', '#edf4beff', '#eef5bfff', '#eff5bfff', '#f0f6bfff', '#f1f6bfff', '#f1f7bfff', '#f2f7bfff', '#f3f8bfff', '#f4f8bfff', '#f5f9bfff', '#f6f9bfff', '#f7fabfff', '#f7fabfff', '#f8fbbfff', '#f9fcbfff', '#fafcbfff', '#fbfdbfff', '#fcfdbfff', '#fdfebfff', '#fdfebfff', '#feffbfff', '#ffffbfff', '#ffffbfff', '#fffebeff', '#fffdbeff', '#fffcbdff', '#fffbbcff', '#fffabcff', '#fef9bbff', '#fef9baff', '#fef8baff', '#fef7b9ff', '#fef6b8ff', '#fef5b8ff', '#fdf4b7ff', '#fdf3b6ff', '#fdf2b6ff', '#fdf1b5ff', '#fdf0b4ff', '#fdefb4ff', '#fdeeb3ff', '#fcedb2ff', '#fcedb2ff', '#fcecb1ff', '#fcebb0ff', '#fceab0ff', '#fce9afff', '#fbe8afff', '#fbe7aeff', '#fbe6adff', '#fbe5adff', '#fbe4acff', '#fbe3abff', '#fae2abff', '#fae1aaff', '#fae0a9ff', '#fae0a9ff', '#fadfa8ff', '#fadea7ff', '#f9dda7ff', '#f9dca6ff', '#f9dba5ff', '#f9daa5ff', '#f9d9a4ff', '#f9d8a3ff', '#f8d7a3ff', '#f8d6a2ff', '#f8d5a1ff', '#f8d4a1ff', '#f8d4a0ff', '#f8d39fff', '#f8d29fff', '#f7d19eff', '#f7d09dff', '#f7cf9dff', '#f7ce9cff', '#f7cd9cff', '#f7cc9bff', '#f6cb9aff', '#f6ca9aff', '#f6c999ff', '#f6c898ff', '#f6c898ff', '#f6c797ff', '#f5c696ff', '#f5c596ff', '#f5c495ff', '#f5c394ff', '#f5c294ff', '#f5c193ff', '#f4c092ff', '#f4bf92ff', '#f4be91ff', '#f4bd90ff', '#f4bc90ff', '#f4bb8fff', '#f4bb8eff', '#f3ba8eff', '#f3b98dff', '#f3b88cff', '#f3b78cff', '#f3b68bff', '#f3b58aff', '#f2b48aff', '#f2b389ff', '#f2b288ff', '#f2b188ff', '#f2b087ff', '#f2af87ff', '#f1af86ff', '#f1ae85ff', '#f1ad85ff', '#f1ac84ff', '#f1ab83ff', '#f1aa83ff', '#f0a982ff', '#f0a881ff', '#f0a781ff', '#f0a680ff', '#f0a57fff', '#f0a47fff', '#efa37eff', '#efa27dff', '#efa27dff', '#efa17cff', '#efa07bff', '#ef9f7bff', '#ef9e7aff', '#ee9d79ff', '#ee9c79ff', '#ee9b78ff', '#ee9a77ff', '#ee9977ff', '#ee9876ff', '#ed9775ff', '#ed9675ff', '#ed9674ff', '#ed9573ff', '#ed9473ff', '#ed9372ff', '#ec9272ff', '#ec9171ff', '#ec9070ff', '#ec8f70ff', '#ec8e6fff', '#ec8d6eff', '#eb8c6eff', '#eb8b6dff', '#eb8a6cff', '#eb8a6cff', '#eb896bff', '#eb886aff', '#ea876aff', '#ea8669ff', '#ea8568ff', '#ea8468ff', '#ea8367ff', '#ea8266ff', '#ea8166ff', '#e98065ff', '#e97f64ff', '#e97e64ff', '#e97d63ff', '#e97d62ff', '#e97c62ff', '#e87b61ff', '#e87a60ff', '#e87960ff', '#e8785fff', '#e8775fff', '#e8765eff', '#e7755dff', '#e7745dff', '#e7735cff', '#e7725bff', '#e7715bff', '#e7715aff', '#e67059ff', '#e66f59ff', '#e66e58ff', '#e66d57ff', '#e66c57ff', '#e66b56ff', '#e66a55ff', '#e56955ff', '#e56854ff', '#e56753ff', '#e56653ff', '#e56552ff', '#e56451ff', '#e46451ff', '#e46350ff', '#e4624fff', '#e4614fff', '#e4604eff', '#e45f4dff', '#e35e4dff', '#e35d4cff', '#e35c4bff', '#e35b4bff', '#e35a4aff', '#e3594aff', '#e25849ff', '#e25848ff', '#e25748ff', '#e25647ff', '#e25546ff', '#e25446ff', '#e15345ff', '#e15244ff', '#e15144ff', '#e15043ff', '#e14f42ff', '#e14e42ff', '#e14d41ff', '#e04c40ff', '#e04b40ff', '#e04b3fff', '#e04a3eff', '#e0493eff', '#e0483dff', '#df473cff', '#df463cff', '#df453bff', '#df443aff', '#df433aff', '#df4239ff', '#de4138ff', '#de4038ff', '#de3f37ff', '#de3f37ff', '#de3e36ff', '#de3d35ff', '#dd3c35ff', '#dd3b34ff', '#dd3a33ff', '#dd3933ff', '#dd3832ff', '#dd3731ff', '#dc3631ff', '#dc3530ff', '#dc342fff', '#dc332fff', '#dc332eff', '#dc322dff', '#dc312dff', '#db302cff', '#db2f2bff', '#db2e2bff', '#db2d2aff', '#db2c29ff', '#db2b29ff', '#da2a28ff', '#da2927ff', '#da2827ff', '#da2726ff', '#da2625ff', '#da2625ff', '#d92524ff', '#d92423ff', '#d92323ff', '#d92222ff', '#d92122ff', '#d92021ff', '#d81f20ff', '#d81e20ff', '#d81d1fff', '#d81c1eff', '#d81b1eff', '#d81a1dff', '#d81a1cff', '#d7191cff']);
+    
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.x = d3.scale.linear()
+              .domain([1.0406, 1.2894])
+              .range([0, 450 - 50]);
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.legend = L.control({position: 'topright'});
+    color_map_a17f776ed3fc30bb47597bf179913fc7.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_a17f776ed3fc30bb47597bf179913fc7.legend.addTo(map_66282527f03900b33abad2f13808243d);
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.xAxis = d3.svg.axis()
+        .scale(color_map_a17f776ed3fc30bb47597bf179913fc7.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([1.0406, 1.165, 1.2894]);
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.g = color_map_a17f776ed3fc30bb47597bf179913fc7.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.g.selectAll("rect")
+        .data(color_map_a17f776ed3fc30bb47597bf179913fc7.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_a17f776ed3fc30bb47597bf179913fc7.x(color_map_a17f776ed3fc30bb47597bf179913fc7.color.domain()[i - 1]) : color_map_a17f776ed3fc30bb47597bf179913fc7.x.range()[0],
+            x1: i < color_map_a17f776ed3fc30bb47597bf179913fc7.color.domain().length ? color_map_a17f776ed3fc30bb47597bf179913fc7.x(color_map_a17f776ed3fc30bb47597bf179913fc7.color.domain()[i]) : color_map_a17f776ed3fc30bb47597bf179913fc7.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_a17f776ed3fc30bb47597bf179913fc7.g.call(color_map_a17f776ed3fc30bb47597bf179913fc7.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Box-counting fractal dimension (D)");
+</script>
+</html>

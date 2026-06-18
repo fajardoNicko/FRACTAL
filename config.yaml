@@ -1,0 +1,65 @@
+# FRACTAL — pipeline configuration
+# Edit these values to change how the pipeline runs. Anything omitted falls back
+# to the defaults baked into src/utils/config.py, so this file is optional.
+
+# Random seed — makes synthetic data and any stochastic step reproducible.
+seed: 42
+
+# Data mode:
+#   synthetic — generate fractal coastlines + correlated surge (no data needed).
+#   real      — read one coastline JPG per segment from data/raw/images and
+#               segment metadata + surge heights from data/raw/segments.csv.
+mode: synthetic
+
+# Number of coastline segments to analyse (outline targets n = 30).
+n_segments: 30
+
+raster:
+  size: 2048        # rasterization resolution in pixels (outline spec: 4096)
+  padding: 0.05     # fractional margin around the curve
+
+box_counting:
+  box_sizes: [4, 8, 16, 32, 64, 128, 256]  # epsilon values in pixels
+  min_r_squared: 0.97                       # below this, a segment is flagged
+
+# Storm-surge vulnerability tiers (metres), per outline §III-C / §IV.
+tiers:
+  high_min: 2.5       # surge > 2.5 m            -> High
+  moderate_min: 1.0   # 1.0 m <= surge <= 2.5 m  -> Moderate
+                      # surge < 1.0 m            -> Low
+
+# Coastline extraction from raster map images (used in "real" mode).
+image:
+  method: otsu           # "otsu" (brightness) or "sea_color" (detect blue sea)
+  threshold: otsu        # otsu method: "otsu" for automatic, or gray level 0-255
+  keep_largest: true     # keep largest region only (drops text/legend specks)
+  fill_holes: true       # fill interior holes (labels/contour lines inside sea)
+  crop_border_frac: 0.0  # crop this fraction off each side (removes map frames)
+  # sea_color method only (for topographic maps like NAMRIA sheets):
+  hue_lo: 120.0          # hue band selecting the blue sea (PIL scale; blue ~= 170)
+  hue_hi: 185.0
+  sat_min: 25.0          # min saturation (rejects white/gray paper)
+  val_min: 40.0          # min brightness
+  save_previews: false   # save a coastline-overlay image per segment for review
+
+# Synthetic-data controls (ignored in "real" mode).
+synthetic:
+  depth: 9            # midpoint-displacement recursion (2^depth + 1 points)
+  amplitude: 0.6      # coastline relief as a fraction of its length
+  hurst_min: 0.45     # roughest coastline  (low H  -> high fractal dimension)
+  hurst_max: 0.95     # smoothest coastline (high H -> low fractal dimension)
+  surge_slope: 9.0    # how strongly surge grows with fractal dimension
+  surge_base: 0.3     # baseline surge (m) at D = 1
+  surge_noise: 0.45   # std-dev of surge noise (m), so correlation is imperfect
+
+# Output locations (relative to project root).
+paths:
+  data_raw: data/raw
+  images: data/raw/images          # one coastline JPG per segment (real mode)
+  segments_csv: data/raw/segments.csv  # metadata + surge heights (real mode)
+  data_processed: data/processed
+  data_exports: data/exports
+  figures: output/figures
+  previews: output/previews
+  reports: output/reports
+  tables: output/tables

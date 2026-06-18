@@ -1,0 +1,29 @@
+# FRACTAL — Fractal Dimension of Philippine Coastline Segments
+# Python dependencies (see research outline §III-E)
+
+# --- Core fractal engine (required) ---
+numpy>=1.24          # box-counting computation, log-log regression
+scipy>=1.10          # Pearson/Spearman correlation, Shapiro-Wilk normality
+
+# --- Statistics / data management ---
+pandas>=2.0          # result tables, CSV export
+statsmodels>=0.14    # linear regression, confidence intervals
+
+# --- Geospatial pipeline (needed once real NAMRIA/PAGASA data is added) ---
+geopandas>=0.14      # shapefile loading and clipping
+shapely>=2.0         # geometry operations
+rasterio>=1.3        # vector-to-raster conversion
+pyproj>=3.5          # coordinate reference system handling
+Pillow>=10.0         # image binarization
+
+# --- Visualization ---
+matplotlib>=3.7      # log-log plots, scatter plots, box plots
+folium>=0.15         # interactive choropleth map of fractal dimensions
+plotly>=5.18         # interactive scatter / comparison plots
+
+# --- Config ---
+PyYAML>=6.0          # config.yaml parsing
+
+# --- Optional ---
+# streamlit>=1.30    # interactive web app (outline §V-D, optional)
+# osmnx>=1.9         # OpenStreetMap coastline reference (optional cross-check)

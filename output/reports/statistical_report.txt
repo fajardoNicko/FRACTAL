@@ -1,0 +1,26 @@
+======================================================================
+FRACTAL DIMENSION vs STORM SURGE HEIGHT - STATISTICAL REPORT
+======================================================================
+Sample size (segments):      n = 30
+Significance threshold:      alpha = 0.05
+
+-- Normality (Shapiro-Wilk) ----------------------------------------
+  Fractal dimension D:  W = 0.9605, p = 0.3197  -> normal
+  Surge height (m):     W = 0.9385, p = 0.0826  -> normal
+  Recommended primary test: Pearson (both variables normal)
+
+-- Correlation -----------------------------------------------------
+  Pearson  r   = 0.8488  (95% CI [0.7037, 0.9259]), p = 3.098e-09  -> SIGNIFICANT
+  Spearman rho = 0.8492, p = 2.997e-09  -> SIGNIFICANT
+
+-- Linear regression (surge ~ D) -----------------------------------
+  surge = 9.8046 * D + (-9.7218)
+  slope 95% CI = [7.4403, 12.1690]
+  R^2 = 0.7204,  p = 3.098e-09
+
+-- One-way ANOVA (D across tiers) ----------------------------------
+  F = 39.0337, p = 1.08e-08 (3 tiers) -> SIGNIFICANT
+
+-- Hypothesis verdict ----------------------------------------------
+  SUPPORTED: significant positive correlation between D and surge.
+======================================================================

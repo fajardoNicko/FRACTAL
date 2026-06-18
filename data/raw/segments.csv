@@ -1,0 +1,4 @@
+filename,id,location,province,region,lat,lon,surge_height_m
+seg_01.jpg,01,Eastern Samar coast,Eastern Samar,Region VIII,11.50,125.60,
+seg_02.jpg,02,Leyte Gulf shore,Leyte,Region VIII,11.00,125.00,
+seg_03.jpg,03,Albay Pacific coast,Albay,Region V,13.20,123.80,
