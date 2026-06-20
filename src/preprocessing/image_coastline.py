@@ -100,6 +100,8 @@ def extract_coastline(
     hue_hi: float = 185.0,
     sat_min: float = 25.0,
     val_min: float = 40.0,
+    open_iterations: int = 0,
+    min_feature_area: float = 300.0,
     debug_path: str | None = None,
 ) -> np.ndarray:
     """Turn a map image into a binary coastline image.
@@ -108,13 +110,23 @@ def extract_coastline(
         path:             Image file (JPG/PNG/...).
         method:           ``"otsu"`` (brightness) or ``"sea_color"`` (blue sea).
         threshold:        For ``otsu``: ``"otsu"`` or a fixed gray level 0–255.
-        keep_largest:     Keep only the largest connected region before taking
-                          the boundary (drops text/legend/contour specks).
-        fill_holes:       Fill interior holes (labels/contours inside the sea).
-        crop_border_frac: Crop this fraction off each side first (map frames).
+        keep_largest:     Keep only the largest region before taking the boundary
+                          — for ``sea_color`` this isolates the ocean itself, so
+                          inland rivers/lakes and the frame are excluded.
+        fill_holes:       Fill interior holes — for ``sea_color`` this drops
+                          islands, depth-contour lines and labels inside the sea.
+        crop_border_frac: Crop this fraction off each side first (map frame/title).
         hue_lo, hue_hi:   For ``sea_color``: hue band selecting the sea (PIL hue
                           scale 0–255; blue ~= 170, cyan ~= 127).
         sat_min, val_min: For ``sea_color``: minimum saturation/brightness.
+        open_iterations:  For ``sea_color``: morphological opening before
+                          isolating the ocean, to sever thin river connections
+                          (0 = off). Higher values cut more aggressively.
+        min_feature_area: For ``sea_color``: holes in the ocean smaller than this
+                          (pixels) are filled — removing depth-contour fragments,
+                          soundings and text labels — while larger holes (real
+                          islands) are kept and their coastlines measured. Set 0
+                          to keep every hole, or a huge value to fill all islands.
         debug_path:       If set, save a colour overlay (coastline drawn in red
                           over the original) here for visual inspection.
 
@@ -124,17 +136,27 @@ def extract_coastline(
     if method == "sea_color":
         hsv = _crop_border(load_hsv(path), crop_border_frac)
         mask = _sea_mask_color(hsv, hue_lo, hue_hi, sat_min, val_min)
+        # Optionally sever thin inland-water connections to the open sea.
+        if open_iterations > 0:
+            mask = ndimage.binary_opening(mask, iterations=open_iterations)
+        # Isolate the ocean = the single largest blue region. This drops inland
+        # rivers/lakes (separate components) and the frame.
+        if keep_largest:
+            mask = _largest_true_component(mask)
+        # Fill only SMALL holes (contour fragments / soundings / text in the sea);
+        # keep large holes (islands) so their coastlines are measured too.
+        if fill_holes:
+            mask = _fill_small_holes(mask, min_feature_area)
     elif method == "otsu":
         gray = _crop_border(load_grayscale(path), crop_border_frac)
         thresh = otsu_threshold(gray) if threshold == "otsu" else float(threshold)
         mask = gray > thresh
+        if fill_holes:
+            mask = ndimage.binary_fill_holes(mask)
+        if keep_largest:
+            mask = _keep_largest_region(mask)
     else:
         raise ValueError(f"unknown method {method!r}; use 'otsu' or 'sea_color'")
-
-    if fill_holes:
-        mask = ndimage.binary_fill_holes(mask)
-    if keep_largest:
-        mask = _keep_largest_region(mask)
 
     # Morphological boundary: mask pixels bordering a non-mask pixel. border_value=1
     # so a region touching the image edge does not create a boundary along the frame.
@@ -144,6 +166,41 @@ def extract_coastline(
     if debug_path is not None:
         _save_overlay(path, boundary, crop_border_frac, debug_path)
     return boundary
+
+
+def _fill_small_holes(mask: np.ndarray, min_area: float) -> np.ndarray:
+    """Fill holes in ``mask`` smaller than ``min_area`` pixels; keep larger ones.
+
+    Used on the ocean mask so small holes (depth-contour fragments, soundings,
+    text labels) are removed, while large holes (islands) remain — letting the
+    boundary capture island coastlines but not sea clutter.
+    """
+    if min_area <= 0:
+        return mask
+    filled = ndimage.binary_fill_holes(mask)
+    holes = filled & ~mask
+    labels, n = ndimage.label(holes)
+    if n == 0:
+        return mask
+    sizes = ndimage.sum_labels(np.ones_like(labels), labels, index=range(1, n + 1))
+    small_labels = {i + 1 for i, s in enumerate(sizes) if s < min_area}
+    small_holes = np.isin(labels, list(small_labels))
+    return mask | small_holes
+
+
+def _largest_true_component(mask: np.ndarray) -> np.ndarray:
+    """Keep only the single largest connected True region of ``mask``.
+
+    Unlike :func:`_keep_largest_region`, this does NOT consider the complement —
+    used for ``sea_color`` to isolate the ocean (largest blue blob) specifically,
+    so inland water bodies and the frame are discarded.
+    """
+    labels, n = ndimage.label(mask)
+    if n <= 1:
+        return mask
+    sizes = ndimage.sum_labels(np.ones_like(labels), labels, index=range(1, n + 1))
+    largest = int(np.argmax(sizes)) + 1
+    return labels == largest
 
 
 def _keep_largest_region(mask: np.ndarray) -> np.ndarray:

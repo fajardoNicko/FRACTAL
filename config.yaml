@@ -40,6 +40,9 @@ image:
   hue_hi: 185.0
   sat_min: 25.0          # min saturation (rejects white/gray paper)
   val_min: 40.0          # min brightness
+  open_iterations: 0     # opening to sever thin river connections (0 = off)
+  min_feature_area: 2000 # fill sea holes smaller than this (drops contour/text
+                         # specks); larger holes kept as islands
   save_previews: false   # save a coastline-overlay image per segment for review
 
 # Synthetic-data controls (ignored in "real" mode).

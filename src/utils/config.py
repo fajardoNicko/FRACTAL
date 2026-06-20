@@ -38,6 +38,9 @@ DEFAULTS: dict[str, Any] = {
         "hue_hi": 185.0,
         "sat_min": 25.0,           # sea_color: min saturation (rejects white paper)
         "val_min": 40.0,           # sea_color: min brightness
+        "open_iterations": 0,      # sea_color: opening to sever rivers (0 = off)
+        "min_feature_area": 2000.0,  # sea_color: fill sea holes smaller than this
+                                     # (drops contour/text); keep larger (islands)
         "save_previews": False,    # save coastline overlay per segment for review
     },
     "synthetic": {

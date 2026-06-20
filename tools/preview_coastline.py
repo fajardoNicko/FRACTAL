@@ -43,6 +43,9 @@ def main() -> int:
     ap.add_argument("--hue-hi", type=float, default=185.0)
     ap.add_argument("--sat-min", type=float, default=25.0)
     ap.add_argument("--val-min", type=float, default=40.0)
+    ap.add_argument("--open-iter", type=int, default=0, help="opening iters (sever rivers)")
+    ap.add_argument("--min-area", type=float, default=300.0,
+                    help="fill sea holes smaller than this; keep larger (islands)")
     ap.add_argument("--no-keep-largest", action="store_true")
     ap.add_argument("--no-fill-holes", action="store_true")
     args = ap.parse_args()
@@ -65,6 +68,8 @@ def main() -> int:
         crop_border_frac=args.crop,
         hue_lo=args.hue_lo, hue_hi=args.hue_hi,
         sat_min=args.sat_min, val_min=args.val_min,
+        open_iterations=args.open_iter,
+        min_feature_area=args.min_area,
         debug_path=overlay,
     )
 
