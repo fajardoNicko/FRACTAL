@@ -1,0 +1,23 @@
+no,place,province,area,lat,lon,measured_surge_m,note
+1,Alcoy Port,Cebu,SE Cebu,9.71362,123.51044,-0.35,negative surge (wind set-down; left of track)
+2,Argao,Cebu,SE Cebu,9.88164,123.60936,1.80,
+3,Malabuyoc,Cebu,SW Cebu,9.65920,123.32436,,wave splash only (no true surge)
+4,Alegria,Cebu,SW Cebu,9.75768,123.34437,,no storm surge
+5,Badian,Cebu,SW Cebu,9.80991,123.36688,,no storm surge
+6,Moalboal Town Centre Port,Cebu,SW Cebu,9.93543,123.39210,2.00,
+7,Dumanjug market,Cebu,SW Cebu,10.05981,123.43469,2.54,Cebu maximum
+8,Dumanjug residential,Cebu,SW Cebu,10.05961,123.43425,2.48,
+9,Barili,Cebu,W Cebu,10.12552,123.49134,1.18,
+10,Carcar,Cebu,E Cebu,10.08327,123.66530,0.49,
+11,San Fernando,Cebu,E Cebu,10.15909,123.71073,2.32,
+12,Isla Pangpasan I,Bohol,Tubigon (Danajon Bank),9.99775,123.94010,2.29,
+13,Isla Pangpasan II,Bohol,Tubigon (Danajon Bank),9.99780,123.94159,2.45,
+14,Isla Ubay,Bohol,Tubigon (Danajon Bank),10.02437,123.96627,2.36,
+15,Isla Batasan I,Bohol,Tubigon (Danajon Bank),10.01219,123.99064,2.00,
+16,Isla Batasan II,Bohol,Tubigon (Danajon Bank),10.01143,123.99142,2.01,
+17,Brgy Kabankalan I,Bohol,Pres. Carlos P. Garcia Is.,10.10375,124.60330,3.18,
+18,Brgy Kabankalan II,Bohol,Pres. Carlos P. Garcia Is.,10.10375,124.60330,4.06,Pres. C.P. Garcia maximum
+19,Brgy Santo Rosario,Bohol,Pres. Carlos P. Garcia Is.,10.11264,124.59679,2.99,
+20,Brgy Tugas,Bohol,Pres. Carlos P. Garcia Is.,10.15140,124.61730,3.55,
+21,Sitio Paraiso,Bohol,Pres. Carlos P. Garcia Is.,10.12487,124.55168,3.89,
+22,Tubigon Port,Bohol,Tubigon,9.95285,123.96090,3.83,Tubigon maximum

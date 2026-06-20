@@ -137,13 +137,15 @@ def format_report(results: dict[str, Any]) -> str:
     # Pick the appropriate correlation test based on normality.
     both_normal = nd["normal"] and ns["normal"]
     primary = "Pearson (both variables normal)" if both_normal else \
-        "Spearman (non-normal data — use rank correlation)"
+        "Spearman (non-normal data - use rank correlation)"
 
     lines = [
         "=" * 70,
         "FRACTAL DIMENSION vs STORM SURGE HEIGHT - STATISTICAL REPORT",
         "=" * 70,
-        f"Sample size (segments):      n = {results['n']}",
+        f"Sample size (segments):      n = {results['n']}"
+        + (f"  ({results['n_excluded']} excluded: unreliable coastline)"
+           if results.get("n_excluded") else ""),
         f"Significance threshold:      alpha = {alpha}",
         "",
         "-- Normality (Shapiro-Wilk) ----------------------------------------",

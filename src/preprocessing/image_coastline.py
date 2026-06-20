@@ -168,6 +168,48 @@ def extract_coastline(
     return boundary
 
 
+def coastline_diagnostics(
+    path: str,
+    method: str = "sea_color",
+    crop_border_frac: float = 0.0,
+    hue_lo: float = 120.0, hue_hi: float = 185.0,
+    sat_min: float = 25.0, val_min: float = 40.0,
+) -> dict:
+    """Assess whether a sheet contains a usable continuous coastline.
+
+    Box-counting fractal dimension is only meaningful for a substantial,
+    continuous coastline. Sheets that are almost entirely open sea with a few
+    tiny scattered islands (or are landlocked) do not yield a valid dimension.
+    This returns simple structural metrics so such sheets can be flagged.
+
+    Returns a dict with:
+        sea_fraction:           fraction of the (cropped) sheet that is sea.
+        largest_land_fraction:  size of the biggest landmass / sheet area.
+        n_land_pieces:          number of separate landmasses (islands) >~0.05%.
+    """
+    if method == "sea_color":
+        hsv = _crop_border(load_hsv(path), crop_border_frac)
+        sea = _sea_mask_color(hsv, hue_lo, hue_hi, sat_min, val_min)
+    else:
+        gray = _crop_border(load_grayscale(path), crop_border_frac)
+        sea = gray > otsu_threshold(gray)
+
+    total = sea.size
+    ocean = _largest_true_component(sea)
+    land = ~ndimage.binary_fill_holes(ocean)
+    labels, n = ndimage.label(land)
+    if n == 0:
+        return {"sea_fraction": float(sea.mean()), "largest_land_fraction": 0.0,
+                "n_land_pieces": 0}
+    sizes = ndimage.sum_labels(np.ones_like(labels), labels, index=range(1, n + 1))
+    min_piece = 0.0005 * total  # ignore specks below 0.05% of the sheet
+    return {
+        "sea_fraction": float(sea.mean()),
+        "largest_land_fraction": float(sizes.max() / total),
+        "n_land_pieces": int((sizes >= min_piece).sum()),
+    }
+
+
 def _fill_small_holes(mask: np.ndarray, min_area: float) -> np.ndarray:
     """Fill holes in ``mask`` smaller than ``min_area`` pixels; keep larger ones.
 

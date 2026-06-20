@@ -38,15 +38,23 @@ def get_surge_heights(
         1-D array of surge heights (metres), one per segment.
     """
     if config.mode == "real":
-        # Surge heights come from the segment metadata CSV (PAGASA/NDRRMC values
-        # the researcher compiled per segment). Validate none are missing.
-        surge = np.array([s.surge_height_m for s in segments], dtype=float)
-        missing = [s.id for s in segments if np.isnan(s.surge_height_m)]
+        # Surge heights come from the segment metadata CSV. For each segment use
+        # an explicit surge_height_m if given, else derive one from its PAGASA
+        # SSA level (ssa_level column). Validate that every segment has one.
+        from src.stormsurge.vulnerability_scorer import ssa_to_height
+
+        surge = np.array(
+            [s.surge_height_m if not np.isnan(s.surge_height_m)
+             else ssa_to_height(s.ssa_level) for s in segments],
+            dtype=float,
+        )
+        missing = [s.id for s, v in zip(segments, surge) if np.isnan(v)]
         if missing:
             raise ValueError(
-                "real mode: missing surge_height_m for segment(s) "
-                f"{', '.join(missing)}. Add a 'surge_height_m' column to "
-                "data/raw/segments.csv (max PAGASA surge per segment, in metres)."
+                "real mode: no surge value for segment(s) "
+                f"{', '.join(missing)}. In data/raw/segments.csv, give each "
+                "either a 'surge_height_m' (metres) or an 'ssa_level' "
+                "(none/1/2/3/4 from HazardHunterPH)."
             )
         return surge
 

@@ -9,7 +9,7 @@ seed: 42
 #   synthetic — generate fractal coastlines + correlated surge (no data needed).
 #   real      — read one coastline JPG per segment from data/raw/images and
 #               segment metadata + surge heights from data/raw/segments.csv.
-mode: synthetic
+mode: real
 
 # Number of coastline segments to analyse (outline targets n = 30).
 n_segments: 30
@@ -30,11 +30,11 @@ tiers:
 
 # Coastline extraction from raster map images (used in "real" mode).
 image:
-  method: otsu           # "otsu" (brightness) or "sea_color" (detect blue sea)
+  method: sea_color      # "otsu" (brightness) or "sea_color" (detect blue sea)
   threshold: otsu        # otsu method: "otsu" for automatic, or gray level 0-255
   keep_largest: true     # keep largest region only (drops text/legend specks)
   fill_holes: true       # fill interior holes (labels/contour lines inside sea)
-  crop_border_frac: 0.0  # crop this fraction off each side (removes map frames)
+  crop_border_frac: 0.03 # crop this fraction off each side (removes map frames)
   # sea_color method only (for topographic maps like NAMRIA sheets):
   hue_lo: 120.0          # hue band selecting the blue sea (PIL scale; blue ~= 170)
   hue_hi: 185.0

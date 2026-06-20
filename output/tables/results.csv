@@ -1,31 +1,56 @@
-id,location,province,region,lat,lon,fractal_dimension,r_squared,surge_height_m,tier
-01,Eastern Samar coast,Eastern Samar,Region VIII,11.5,125.6,1.0718,0.9995,0.83,Low
-02,Leyte Gulf shore,Leyte,Region VIII,11.0,125.0,1.061,0.9998,0.28,Low
-03,Albay Pacific coast,Albay,Region V,13.2,123.8,1.0684,0.9995,1.0,Low
-04,Tacloban Bay,Leyte,Region VIII,11.24,125.0,1.0406,0.9999,0.0,Low
-05,Sorsogon coast,Sorsogon,Region V,12.97,124.0,1.0656,0.9997,1.22,Moderate
-06,Catanduanes east,Catanduanes,Region V,13.7,124.3,1.073,0.9997,0.81,Low
-07,Northern Samar coast,Northern Samar,Region VIII,12.5,124.8,1.1259,0.9999,1.65,Moderate
-08,Aurora Pacific coast,Aurora,Region III,15.8,121.6,1.119,0.9998,0.97,Low
-09,Cagayan coast,Cagayan,Region II,18.3,122.0,1.0816,0.9997,2.01,Moderate
-10,Isabela coast,Isabela,Region II,17.0,122.2,1.1248,0.9996,0.68,Low
-11,Surigao del Norte coast,Surigao del Norte,Region XIII,9.8,125.5,1.1732,0.9998,1.4,Moderate
-12,Surigao del Sur coast,Surigao del Sur,Region XIII,8.8,126.2,1.1939,0.9994,1.47,Moderate
-13,Davao Oriental coast,Davao Oriental,Region XI,7.3,126.5,1.1219,0.9998,1.79,Moderate
-14,Camarines Sur coast,Camarines Sur,Region V,13.6,123.3,1.1586,0.9991,1.13,Moderate
-15,Quezon Pacific coast,Quezon,Region IV-A,14.0,122.3,1.1327,0.9997,1.3,Moderate
-16,Batanes shore,Batanes,Region II,20.4,121.97,1.1599,0.9999,1.48,Moderate
-17,Ilocos Norte coast,Ilocos Norte,Region I,18.2,120.6,1.2215,0.9992,2.09,Moderate
-18,La Union coast,La Union,Region I,16.6,120.3,1.1612,0.9997,1.22,Moderate
-19,Zambales coast,Zambales,Region III,15.3,119.95,1.1738,0.9994,1.22,Moderate
-20,Palawan west coast,Palawan,Region IV-B,9.8,118.7,1.1889,0.9997,2.62,High
-21,Occidental Mindoro coast,Occidental Mindoro,Region IV-B,12.8,120.9,1.165,0.9999,1.35,Moderate
-22,Iloilo coast,Iloilo,Region VI,10.7,122.5,1.2167,0.9994,2.83,High
-23,Antique coast,Antique,Region VI,11.0,121.9,1.196,0.9996,2.11,Moderate
-24,Cebu east coast,Cebu,Region VII,10.3,124.0,1.2709,0.9996,2.65,High
-25,Bohol coast,Bohol,Region VII,9.7,124.3,1.245,0.9997,2.75,High
-26,Zamboanga Peninsula,Zamboanga del Sur,Region IX,7.8,123.0,1.2216,0.9996,2.59,High
-27,Tawi-Tawi (Sulu Sea),Tawi-Tawi,BARMM,5.1,119.9,1.2894,0.9995,2.58,High
-28,Manila Bay interior,Bataan,Region III,14.6,120.5,1.2428,0.9997,2.73,High
-29,Lingayen Gulf,Pangasinan,Region I,16.2,120.2,1.2502,0.9995,2.91,High
-30,Sarangani Bay,Sarangani,Region XII,6.0,125.2,1.282,0.9996,2.83,High
+id,location,province,region,lat,lon,fractal_dimension,r_squared,largest_land_fraction,reliable,surge_height_m,tier
+1,Batan Island,Batanes,Region II,20.45,121.97,1.0354,1.0,0.0404,True,2.5,Moderate
+2,Calayan Island,Cagayan,Region II,19.27,121.48,1.0107,1.0,0.0716,False,2.5,Moderate
+3,Laoag City,Ilocos Norte,Region I,18.2,120.59,1.0498,1.0,0.4007,True,3.5,High
+4,Aparri,Cagayan,Region II,18.36,121.64,1.0854,0.9999,0.2372,True,4.5,High
+5,Bontoc,Mountain Province,CAR,17.09,120.98,1.1342,0.9996,0.7454,True,2.5,Moderate
+6,City of Ilagan,Isabela,Region II,17.15,121.89,1.0711,0.9998,0.5362,True,3.5,High
+7,Dagupan City,Pangasinan,Region I,16.04,120.33,1.1399,0.9998,0.4668,True,3.5,High
+8,Solano,Nueva Vizcaya,Region II,16.52,121.18,1.0846,0.9987,0.8254,True,2.5,Moderate
+9,Tarlac,Tarlac,Region III,15.48,120.6,1.0873,0.9995,0.7278,True,2.5,Moderate
+10,Laur,Nueva Ecija,Region III,15.58,121.18,1.0312,0.9998,0.3697,True,2.5,Moderate
+11,City of Manila,Metro Manila,NCR,14.6,120.98,1.2185,0.9999,0.6385,True,2.5,Moderate
+12,Daet,Camarines Norte,Region V,14.11,122.96,1.1608,0.9995,0.2981,True,3.5,High
+13,Pandan,Antique,Region VI,11.72,122.1,1.0717,0.9997,0.0249,True,2.5,Moderate
+14,Batangas City,Batangas,Region IV-A,13.76,121.06,1.0984,0.9994,0.2524,True,2.5,Moderate
+15,Lucena,Quezon,Region IV-A,13.94,121.62,1.1157,0.9998,0.1826,True,2.5,Moderate
+16,City of Legazpi,Albay,Region V,13.14,123.74,1.1884,0.9987,0.5687,True,4.5,High
+17,San Jose,Occidental Mindoro,Region IV-B,12.35,121.07,1.0791,0.9999,0.2079,True,2.5,Moderate
+18,Romblon,Romblon,Region IV-B,12.58,122.27,1.1043,0.9992,0.1054,True,2.5,Moderate
+19,Bulan,Sorsogon,Region V,12.67,123.88,1.1647,0.9993,0.1825,True,4.5,High
+20,City of Calbayog,Samar,Region VIII,12.07,124.6,1.1609,0.9999,0.3968,True,3.5,High
+21,El Nido,Palawan,Region IV-B,11.2,119.41,1.1613,0.9989,0.0299,True,2.5,Moderate
+22,Coron Island,Palawan,Region IV-B,11.99,120.2,1.0734,0.9997,0.0443,True,2.5,Moderate
+23,City of Roxas,Capiz,Region VI,11.59,122.75,1.1291,0.9999,0.3973,True,4.5,High
+24,Bogo,Cebu,Region VII,11.05,124.0,1.1331,0.9992,0.0663,True,3.5,High
+25,Ormoc City,Leyte,Region VIII,11.01,124.61,1.0771,0.9995,0.7,True,2.5,Moderate
+26,Taytay,Palawan,Region IV-B,10.82,119.52,1.1187,0.9999,0.5433,True,2.5,Moderate
+27,Cuyo,Palawan,Region IV-B,10.85,121.01,1.0273,0.9999,0.043,True,2.5,Moderate
+28,Iloilo,Iloilo,Region VI,10.72,122.56,1.1223,0.9996,0.2198,True,3.5,High
+29,Cebu City,Cebu,Region VII,10.32,123.89,1.1356,0.9993,0.5679,True,3.5,High
+30,City of Baybay,Leyte,Region VIII,10.68,124.8,1.0958,0.9998,0.3664,True,2.5,Moderate
+31,City of Puerto Princesa,Palawan,Region IV-B,9.74,118.74,1.1011,0.9999,0.5484,True,2.5,Moderate
+32,Cagayan Island,Palawan,Region IV-B,7.97,117.05,0.9891,1.0,0.0423,False,2.5,Moderate
+33,City of Dumaguete,Negros Oriental,Region VII,9.31,123.31,1.0739,0.9998,0.4469,True,2.5,Moderate
+34,City of Tagbilaran,Bohol,Region VII,9.65,123.85,1.0333,0.9998,0.214,True,4.5,High
+35,Surigao City,Surigao del Norte,Region XIII,9.79,125.49,1.1431,0.9997,0.2752,True,3.5,High
+36,Brooke's Point,Palawan,Region IV-B,8.78,117.84,1.0811,0.9998,0.1743,True,2.5,Moderate
+37,Tubbataha Reefs,Palawan,Region IV-B,8.95,119.88,0.9983,1.0,0.0436,False,2.5,Moderate
+38,Dipolog City,Zamboanga del Norte,Region IX,8.59,123.34,1.0395,0.9995,0.2299,True,2.5,Moderate
+39,Cagayan de Oro City,Misamis Oriental,Region X,8.48,124.65,1.0966,0.9998,0.3087,True,2.5,Moderate
+40,Butuan City,Agusan del Norte,Region XIII,8.95,125.54,1.1675,0.9994,0.9068,True,2.5,Moderate
+41,Balabac Island,Palawan,Region IV-B,7.98,117.05,1.0881,0.9997,0.0511,True,2.5,Moderate
+42,Cagayan de Tawi-Tawi Island,Tawi-Tawi,BARMM,7.03,118.32,0.9825,0.9994,0.0428,False,2.5,Moderate
+43,Kabasalan,Zamboanga Sibugay,Region IX,7.07,122.76,1.0832,0.999,0.6537,True,2.5,Moderate
+44,Cotabato City,Maguindanao del Norte,BARMM,7.22,124.25,1.1397,0.9999,0.3981,True,2.5,Moderate
+45,Davao City,Davao del Sur,Region XI,7.19,125.46,1.1231,0.999,0.9382,True,2.5,Moderate
+46,Caraga,Davao Oriental,Region XI,7.33,126.57,1.1047,0.9996,0.3215,True,3.5,High
+47,Turtle Islands,Tawi-Tawi,BARMM,6.08,118.31,1.0011,1.0,0.0374,False,2.5,Moderate
+48,Jolo,Sulu,BARMM,6.05,121.0,1.0249,0.9994,0.0409,True,2.5,Moderate
+49,Zamboanga City,Zamboanga Peninsula,Region IX,6.91,122.08,1.0898,0.9999,0.0481,True,2.5,Moderate
+50,City of Koronadal,South Cotabato,Region XII,6.5,124.85,1.0411,0.9995,0.6174,True,2.5,Moderate
+51,City of Digos,Davao del Sur,Region XI,6.75,125.36,1.0911,0.9996,0.4587,True,2.5,Moderate
+52,Tawi-Tawi Islands,Tawi-Tawi,BARMM,5.2,120.0,1.0551,0.9995,0.2208,True,2.5,Moderate
+53,Maimbung,Sulu,BARMM,5.93,121.03,1.1022,0.9997,0.024,True,2.5,Moderate
+54,Jose Abad Santos,Davao Occidental,Region XI,5.92,125.65,1.0429,0.9998,0.1532,True,2.5,Moderate
+55,Sibutu Island,Tawi-Tawi,BARMM,4.84,119.45,1.0961,0.9996,0.0454,True,2.5,Moderate

@@ -26,7 +26,7 @@ from src.fractal.box_counting import box_counting_dimension
 from src.maps.folium_maps import build_dimension_map
 from src.maps.plotly_maps import boxplot_dimension_by_tier, scatter_dimension_vs_surge
 from src.preprocessing.coastline_cleaner import clean_coords
-from src.preprocessing.image_coastline import extract_coastline
+from src.preprocessing.image_coastline import coastline_diagnostics, extract_coastline
 from src.preprocessing.raster_converter import rasterize_polyline
 from src.preprocessing.segment_generator import generate_segments
 from src.stormsurge import statistics
@@ -39,19 +39,31 @@ from src.utils.logger import get_logger
 log = get_logger("fractal")
 
 
-def compute_dimensions(segments, config) -> tuple[np.ndarray, np.ndarray]:
-    """Clean, rasterize and box-count every segment.
+# A segment's box-counting D is trustworthy only if the sheet holds enough
+# coastline. The hard auto-exclusion is a geometrically IMPOSSIBLE dimension
+# (D < ~1.02) — which is what sheets dominated by open sea with a few tiny
+# scattered islands produce. Sheets with little land but a plausible D (island
+# archipelagos like El Nido) are KEPT but get a low-land advisory, so the
+# researcher can decide whether to exclude them too.
+MIN_PLAUSIBLE_D = 1.02      # D below this is geometrically implausible
+LOW_LAND_ADVISORY = 0.035   # below this, flag as archipelago/open-sea for review
+
+
+def compute_dimensions(segments, config):
+    """Clean/extract and box-count every segment, with reliability QA.
 
     Returns:
-        (dimensions, r_squared) arrays aligned with ``segments``.
+        dict of aligned arrays: dimension, r_squared, reliable, sea_fraction,
+        largest_land_fraction.
     """
-    dimensions, r_squared = [], []
+    dims, r2, reliable, sea_frac, land_frac = [], [], [], [], []
     # Separate the preview toggle from the extractor kwargs.
     img_kwargs = dict(config.image)
     save_previews = img_kwargs.pop("save_previews", False)
     previews_dir = config.path("previews")
 
     for seg in segments:
+        sea_f, land_f = float("nan"), float("nan")
         if seg.image_path is not None:
             # Real mode: extract the coastline (land/sea boundary) from the map image.
             debug_path = (os.path.join(previews_dir, f"coastline_{seg.id}.png")
@@ -59,22 +71,44 @@ def compute_dimensions(segments, config) -> tuple[np.ndarray, np.ndarray]:
             if debug_path:
                 ensure_dir(previews_dir)
             image = extract_coastline(seg.image_path, debug_path=debug_path, **img_kwargs)
+            diag = coastline_diagnostics(
+                seg.image_path, method=img_kwargs.get("method", "otsu"),
+                crop_border_frac=img_kwargs.get("crop_border_frac", 0.0),
+                hue_lo=img_kwargs.get("hue_lo", 120.0), hue_hi=img_kwargs.get("hue_hi", 185.0),
+                sat_min=img_kwargs.get("sat_min", 25.0), val_min=img_kwargs.get("val_min", 40.0))
+            sea_f, land_f = diag["sea_fraction"], diag["largest_land_fraction"]
         else:
             # Synthetic mode: rasterize the vector coastline to a binary image.
             coords = clean_coords(seg.coords)
             image = rasterize_polyline(coords, size=config.raster_size,
                                        padding=config.raster_padding)
         result = box_counting_dimension(image, config.box_sizes)
-        dimensions.append(result.dimension)
-        r_squared.append(result.r_squared)
-        flag = "  [FLAGGED: R^2 < %.2f]" % config.min_r_squared if result.flagged else ""
+
+        # Reliability: synthetic data is always reliable; real sheets are
+        # auto-excluded only for a geometrically impossible dimension. A low land
+        # fraction with a plausible D is kept but noted for the researcher.
+        ok, note = True, ""
+        if seg.image_path is not None:
+            if result.dimension < MIN_PLAUSIBLE_D:
+                ok = False
+                note = f"  [EXCLUDED: implausible D={result.dimension:.3f} " \
+                       f"(open sea, land {land_f*100:.1f}%)]"
+            elif land_f < LOW_LAND_ADVISORY:
+                note = f"  [review: archipelago, land {land_f*100:.1f}%]"
+
+        dims.append(result.dimension); r2.append(result.r_squared)
+        reliable.append(ok); sea_frac.append(sea_f); land_frac.append(land_f)
         log.info("  #%s %-26s D = %.4f  (R^2 = %.4f)%s",
-                 seg.id, seg.location, result.dimension, result.r_squared, flag)
-    return np.array(dimensions), np.array(r_squared)
+                 seg.id, seg.location, result.dimension, result.r_squared, note)
+    return {
+        "dimension": np.array(dims), "r_squared": np.array(r2),
+        "reliable": np.array(reliable), "sea_fraction": np.array(sea_frac),
+        "largest_land_fraction": np.array(land_frac),
+    }
 
 
-def build_results_table(segments, dimensions, r_squared, surge, tiers) -> pd.DataFrame:
-    """Assemble the §V-A results DataFrame."""
+def build_results_table(segments, dim, surge, tiers) -> pd.DataFrame:
+    """Assemble the §V-A results DataFrame (dim is the compute_dimensions dict)."""
     return pd.DataFrame({
         "id": [s.id for s in segments],
         "location": [s.location for s in segments],
@@ -82,8 +116,10 @@ def build_results_table(segments, dimensions, r_squared, surge, tiers) -> pd.Dat
         "region": [s.region for s in segments],
         "lat": [s.lat for s in segments],
         "lon": [s.lon for s in segments],
-        "fractal_dimension": np.round(dimensions, 4),
-        "r_squared": np.round(r_squared, 4),
+        "fractal_dimension": np.round(dim["dimension"], 4),
+        "r_squared": np.round(dim["r_squared"], 4),
+        "largest_land_fraction": np.round(dim["largest_land_fraction"], 4),
+        "reliable": dim["reliable"],
         "surge_height_m": np.round(surge, 2),
         "tier": tiers,
     })
@@ -99,35 +135,48 @@ def main() -> None:
     log.info("Generating %d coastline segments and computing fractal dimensions...",
              config.n_segments)
     segments = generate_segments(config)
-    dimensions, r_squared = compute_dimensions(segments, config)
+    dim = compute_dimensions(segments, config)
+    dimensions = dim["dimension"]
 
     # 4-5. Surge heights and vulnerability tiers.
     surge = get_surge_heights(segments, dimensions, config)
     tiers = classify_tiers(surge, config)
 
     # 6. Results table -> CSV.
-    df = build_results_table(segments, dimensions, r_squared, surge, tiers)
+    df = build_results_table(segments, dim, surge, tiers)
     table_path = os.path.join(config.path("tables"), "results.csv")
     save_dataframe(df, table_path)
     log.info("Results table written to %s", table_path)
 
-    # 7. Statistics -> JSON + text report.
-    log.info("Running statistical analysis...")
-    results = statistics.analyze(dimensions, surge, tiers)
+    # 7. Statistics -> JSON + text report. Exclude QA-flagged segments so an
+    #    undefined coastline dimension never enters the correlation.
+    reliable = df["reliable"].to_numpy()
+    n_excluded = int((~reliable).sum())
+    if n_excluded:
+        log.warning("Excluding %d segment(s) with unreliable coastline D from "
+                    "statistics: %s", n_excluded,
+                    ", ".join(df.loc[~reliable, "id"].tolist()))
+    log.info("Running statistical analysis on %d reliable segment(s)...",
+             int(reliable.sum()))
+    results = statistics.analyze(dimensions[reliable], surge[reliable],
+                                 [t for t, k in zip(tiers, reliable) if k])
+    results["n_excluded"] = n_excluded
     report = statistics.format_report(results)
     save_json(results, os.path.join(config.path("reports"), "statistics.json"))
     save_text(report, os.path.join(config.path("reports"), "statistical_report.txt"))
     print("\n" + report + "\n")
 
-    # 8. Visualizations.
+    # 8. Visualizations. The map shows all segments; the analytical charts use
+    #    only the reliable subset (matching the statistics).
     log.info("Rendering map and charts...")
     figures = config.path("figures")
+    df_ok = df[df["reliable"]]
     build_dimension_map(df, os.path.join(figures, "dimension_map.html"))
     scatter_dimension_vs_surge(
-        df, results["regression"], results["pearson"]["r"],
+        df_ok, results["regression"], results["pearson"]["r"],
         os.path.join(figures, "scatter_dimension_vs_surge.html"),
     )
-    boxplot_dimension_by_tier(df, os.path.join(figures, "boxplot_by_tier.html"))
+    boxplot_dimension_by_tier(df_ok, os.path.join(figures, "boxplot_by_tier.html"))
 
     # Tier counts summary.
     counts = df["tier"].value_counts().to_dict()

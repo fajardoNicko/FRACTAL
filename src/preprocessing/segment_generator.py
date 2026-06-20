@@ -82,6 +82,7 @@ class Segment:
     image_path: str | None = None        # coastline map image (real mode)
     hurst: float = float("nan")          # roughness control (synthetic only)
     surge_height_m: float = float("nan")  # known surge from metadata (real mode)
+    ssa_level: str = ""                  # PAGASA SSA level fallback (real mode)
 
 
 def _midpoint_displacement(depth: int, hurst: float, rng: np.random.Generator) -> np.ndarray:
@@ -235,6 +236,7 @@ def _load_image_segments(config) -> list[Segment]:
                 lon=float(_get("lon", float("nan"))),
                 image_path=path,
                 surge_height_m=float(_get("surge_height_m", float("nan"))),
+                ssa_level=str(_get("ssa_level", "")),
             )
         )
     return segments

@@ -1,0 +1,55 @@
+# PROVISIONAL storm-surge estimates — NOT official PAGASA SSA hazard levels.
+# Compiled from public news reports of PAGASA storm-surge ADVISORIES/FORECASTS
+# during specific typhoons (event forecasts), not the static SSA hazard map.
+# Replace with HazardHunterPH / formal PAGASA data before any final analysis.
+#
+# confidence: documented = a specific surge figure cited for this area/event;
+#             regional   = blanket regional statement (e.g. "Palawan up to 2 m");
+#             sparse     = little/no data found, defaulted low (NEEDS lookup).
+# prov_ssa uses bands SSA1<=2 m, SSA2 2-3 m, SSA3 3-4 m, SSA4 >4 m
+#   (NOTE: PAGASA's current operational bands differ in some sources — verify).
+filename,location,prov_ssa,basis_surge_m,confidence,source_event
+seg_03.jpg,Laoag City (Ilocos Norte),SSA2,2-3,regional,Ilocos surge warnings (Uwan/Marce)
+seg_04.jpg,Aparri (Cagayan),SSA3,up to 6 (peak),documented,Mangkhut/Ompong 2018 (6 m forecast)
+seg_06.jpg,City of Ilagan (Isabela),SSA2,2-3,regional,Isabela Pacific coast warnings
+seg_07.jpg,Dagupan City (Pangasinan),SSA2,2.1-3,documented,Lingayen Gulf surge warnings
+seg_11.jpg,City of Manila,SSA1,1-2,regional,Manila Bay surge warnings
+seg_12.jpg,Daet (Camarines Norte),SSA2,~3,documented,Bicol red warnings
+seg_13.jpg,Pandan (Antique),SSA1,up to 2,regional,N. Antique warnings [archipelago-flagged]
+seg_14.jpg,Batangas City,SSA1,~2,regional,Batangas warnings
+seg_15.jpg,Lucena (Quezon),SSA1,~2,regional,Quezon warnings
+seg_16.jpg,City of Legazpi (Albay),SSA3,>3 (red),documented,Goni/Uwan Bicol red warnings
+seg_17.jpg,San Jose (Occ. Mindoro),SSA1,up to 2,regional,Mindoro warnings
+seg_18.jpg,Romblon,SSA1,up to 2,regional,Romblon warnings
+seg_19.jpg,Bulan (Sorsogon),SSA3,>3 (red),documented,Bicol red warnings
+seg_20.jpg,City of Calbayog (Samar),SSA2,2-3,regional,Samar surge warnings
+seg_21.jpg,El Nido (Palawan),SSA1,up to 2,regional,Palawan warnings [archipelago-flagged]
+seg_22.jpg,Coron Island (Palawan),SSA1,up to 2,regional,Palawan warnings
+seg_23.jpg,City of Roxas (Capiz),SSA3,3,documented,Tino Aklan/Capiz 3 m warning
+seg_24.jpg,Bogo (Cebu),SSA2,~2-2.5,documented,N. Cebu warnings / Odette nearby
+seg_25.jpg,Ormoc City (Leyte),SSA1,~2,regional,W. Leyte warnings
+seg_26.jpg,Taytay (Palawan),SSA1,up to 2,regional,Palawan warnings
+seg_28.jpg,Iloilo,SSA2,2-3,documented,N. Iloilo (Ajuy/Batad) warnings
+seg_29.jpg,Cebu City,SSA2,2.54 (measured),documented,Odette 2021 (also in recorded_surge_m)
+seg_30.jpg,City of Baybay (Leyte),SSA1,~2,regional,W. Leyte warnings
+seg_31.jpg,City of Puerto Princesa,SSA1,up to 2,regional,Palawan warnings
+seg_33.jpg,City of Dumaguete (Negros Or.),SSA1,up to 2,regional,Negros warnings
+seg_34.jpg,City of Tagbilaran (Bohol),SSA3,3.83 (measured),documented,Odette 2021 Tubigon (also recorded)
+seg_35.jpg,Surigao City,SSA2,up to 2 (recent); higher in Odette,regional,Caraga warnings / Odette
+seg_36.jpg,Brooke's Point (Palawan),SSA1,up to 2,regional,Palawan warnings
+seg_38.jpg,Dipolog City (Zamboanga N.),SSA1,up to 2,sparse,Mindanao warnings (general)
+seg_39.jpg,Cagayan de Oro City,SSA1,up to 2,regional,N. Mindanao warnings
+seg_40.jpg,Butuan City (Agusan N.),SSA1,up to 2,documented,Basyang 2026 Agusan del Norte
+seg_41.jpg,Balabac Island (Palawan),SSA1,up to 2,regional,Palawan warnings
+seg_43.jpg,Kabasalan (Zamboanga Sibugay),SSA1,up to 2,sparse,no specific data found
+seg_44.jpg,Cotabato City,SSA1,up to 2,sparse,no specific data found
+seg_45.jpg,Davao City,SSA1,1-2,sparse,Davao Gulf (sheltered); no specific data
+seg_46.jpg,Caraga (Davao Oriental),SSA2,~2 (E seaboard),regional,Davao Or. eastern seaboard / Pablo 2012
+seg_48.jpg,Jolo (Sulu),SSA1,up to 2,sparse,no specific data found
+seg_49.jpg,Zamboanga City,SSA1,up to 2,sparse,Mindanao warnings (general)
+seg_50.jpg,City of Koronadal (S. Cotabato),SSA1,up to 2,sparse,no specific data found
+seg_51.jpg,City of Digos (Davao Sur),SSA1,1-2,sparse,Davao Gulf (sheltered)
+seg_52.jpg,Tawi-Tawi Islands,SSA1,up to 2,sparse,no specific data found
+seg_53.jpg,Maimbung (Sulu),SSA1,up to 2,sparse,no specific data [archipelago-flagged]
+seg_54.jpg,Jose Abad Santos (Davao Occ.),SSA1,up to 2,sparse,no specific data found
+seg_55.jpg,Sibutu Island (Tawi-Tawi),SSA1,up to 2,sparse,no specific data found
